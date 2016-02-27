@@ -21,16 +21,16 @@ const SplashScene = require('./SplashScene');
 class App extends Component {
   render() {
     return (
-    <Navigator
-      initialRoute={{id: 'SplashScene', name: 'Index'}}
-      renderScene={this.renderScene.bind(this)}
-      onfigureScene={(route) => {
-      if (route.sceneConfig) {
-        return route.sceneConfig;
-      }
-      return Navigator.SceneConfigs.FloatFromRight;
-      }}
-    />
+      <Navigator
+        initialRoute={{id: 'SplashScene'}}
+        renderScene={this.renderScene.bind(this)}
+        configureScene={(route) => {
+          if (route.sceneConfig) {
+            return route.sceneConfig;
+          }
+          return Navigator.SceneConfigs.FloatFromRight;
+        }}
+      />
     );
   }
 

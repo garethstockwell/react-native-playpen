@@ -8,7 +8,6 @@ import React, {
   Component,
   Navigator,
   Text,
-  TouchableOpacity,
   View
 } from 'react-native';
 
@@ -25,12 +24,13 @@ class CategoryListScene extends Component {
   render() {
     return (
       <Navigator
-          renderScene={this.renderScene.bind(this)}
-          navigationBar={
-            <Navigator.NavigationBar
-                routeMapper={NavigationBarRouteMapper}
-            />
-          }
+        renderScene={this.renderScene.bind(this)}
+        navigator={this.props.navigator}
+        navigationBar={
+         <Navigator.NavigationBar
+           style={style.navbar}
+           routeMapper={NavigationBarRouteMapper} />
+        }
       />
     );
   }
@@ -48,18 +48,28 @@ class CategoryListScene extends Component {
 
 var NavigationBarRouteMapper = {
   LeftButton(route, navigator, index, navState) {
-    return null;
+    if (index === 0) {
+      return null;
+    }
+
+    var previousRoute = navState.routeStack[index - 1];
+    return (
+      <Text>Foo</Text>
+    );
   },
+
   RightButton(route, navigator, index, navState) {
     return null;
   },
+
   Title(route, navigator, index, navState) {
+    var title = navState.routeStack[index];
+    console.log('CLS title ' + title)
+    console.log('CLS route ' + route)
+    console.log('CLS navState ' + navState)
+    console.log('CLS navState.routeStack ' + navState.routeStack)
     return (
-      <TouchableOpacity style={{flex: 1, justifyContent: 'center'}}>
-        <Text style={{color: 'white', margin: 10, fontSize: 16}}>
-          FooBar
-        </Text>
-      </TouchableOpacity>
+      <Text>{title}</Text>
     );
   }
 };

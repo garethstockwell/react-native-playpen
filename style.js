@@ -43,6 +43,11 @@ const styles = StyleSheet.create({
     color: '#333',
     fontSize: 16,
   },
+
+  navbar: {
+    backgroundColor: '#e9eaed',
+    height: 50,
+  },
 });
 
 module.exports = styles;
