@@ -11,10 +11,15 @@ const style = require('../style.js')
 
 class CategoryListItem extends React.Component {
   render() {
+    var count = '';
+    if (this.props.item.count) {
+        count = ' (' + this.props.item.count + ')';
+    }
+
     return (
       <TouchableHighlight onPress={this.props.onPress}>
         <View style={style.li}>
-          <Text style={style.liText}>{this.props.item.title}</Text>
+          <Text style={style.liText}>{this.props.item.title}{count}</Text>
         </View>
       </TouchableHighlight>
     );
