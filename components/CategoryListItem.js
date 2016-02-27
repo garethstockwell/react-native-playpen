@@ -1,3 +1,7 @@
+/**
+ * CategoryListItem.js
+ */
+
 'use strict';
 
 import React, {
