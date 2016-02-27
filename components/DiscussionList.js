@@ -1,5 +1,5 @@
 /**
- * CategoryList.js
+ * DiscussionList.js
  */
 
 'use strict';
@@ -13,9 +13,9 @@ import React, {
 
 const style = require('../style.js')
 
-const CategoryListItem = require('./CategoryListItem');
+const DiscussionListItem = require('./DiscussionListItem');
 
-class CategoryList extends React.Component {
+class DiscussionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,19 +28,16 @@ class CategoryList extends React.Component {
   componentDidMount() {
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows([
-        { name: 'Category1', count: 123 },
-        { name: 'Category2', count: 0 },
-        { name: 'Category3', count: 99 },
+        { title: 'Discussion1' },
+        { title: 'Discussion2' },
+        { title: 'Discussion3' },
       ])
     })
   }
 
   _renderItem(item) {
     return (
-      <CategoryListItem
-        item={item}
-        onPress={(name) => this.props.onPress(name)}
-      />
+      <DiscussionListItem item={item} onpress={() => {}} />
     );
   }
 
@@ -48,7 +45,7 @@ class CategoryList extends React.Component {
     return (
       <View style={style.container}>
         <Text style={style.welcome}>
-          Categories
+          Discussions ({this.props.name})
         </Text>
         <ListView
           dataSource={this.state.dataSource}
@@ -60,5 +57,5 @@ class CategoryList extends React.Component {
   }
 }
 
-module.exports = CategoryList;
+module.exports = DiscussionList;
 

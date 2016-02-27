@@ -6,43 +6,68 @@
 
 import React, {
   Component,
-  ListView,
-  StyleSheet,
+  Navigator,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   View
 } from 'react-native';
 
 const style = require('../style.js')
 
-const CategoryList = require('./CategoryList');
+const CategoryListScene = require('./CategoryListScene');
+const DiscussionListScene = require('./DiscussionListScene');
+const SplashScene = require('./SplashScene');
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (r1, r2) => r1 !== r2
-      })
-    };
-  }
-
-  componentDidMount() {
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows([
-        { title: 'Thing1', count: 123 },
-        { title: 'Thing2', count: 0 },
-        { title: 'Thing3', count: 99 },
-      ])
-    })
-  }
-
   render() {
     return (
-      <View style={style.container}>
-        <CategoryList
-          dataSource={this.state.dataSource}
+    <Navigator
+      initialRoute={{id: 'SplashScene', name: 'Index'}}
+      renderScene={this.renderScene.bind(this)}
+      onfigureScene={(route) => {
+      if (route.sceneConfig) {
+        return route.sceneConfig;
+      }
+      return Navigator.SceneConfigs.FloatFromRight;
+      }}
+    />
+    );
+  }
+
+  renderScene(route, navigator) {
+    if (route.id === 'SplashScene') {
+      return (
+        <SplashScene
+          navigator={navigator} />
+      );
+    }
+
+    if (route.id === 'CategoryListScene') {
+      return (
+        <CategoryListScene
+          navigator={navigator} />
+      );
+    }
+
+    if (route.id === 'DiscussionListScene') {
+      return (
+        <DiscussionListScene
+          navigator={navigator}
+          name={route.name}
         />
+      );
+    }
+
+    return this.noRoute(navigator);
+  }
+
+  noRoute(navigator) {
+    return (
+      <View style={style.container}>
+        <TouchableOpacity
+            onPress={() => navigator.pop()}>
+          <Text style={{color: 'red', fontWeight: 'bold'}}>renderScene</Text>
+        </TouchableOpacity>
       </View>
     );
   }
