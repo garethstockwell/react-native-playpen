@@ -15,7 +15,7 @@ import React, {
 
 const style = require('../style.js')
 
-const CategoryListItem = require('./CategoryListItem');
+const CategoryList = require('./CategoryList');
 
 class App extends Component {
   constructor(props) {
@@ -37,31 +37,12 @@ class App extends Component {
     })
   }
 
-  _renderItem(item) {
-    return (
-      <CategoryListItem item={item} onpress={() => {}} />
-    );
-  }
-
   render() {
     return (
       <View style={style.container}>
-        <Text style={style.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={style.instructions}>
-          To get xxstarted, edit index.android.js
-        </Text>
-        <Text style={style.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-
-        <ListView
+        <CategoryList
           dataSource={this.state.dataSource}
-          renderRow={this._renderItem.bind(this)}
-          style={style.listview}
         />
-
       </View>
     );
   }
