@@ -2,50 +2,100 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
+
 'use strict';
+
 import React, {
   AppRegistry,
   Component,
+  ListView,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View
 } from 'react-native';
 
+const CategoryListItem = require('./components/CategoryListItem');
+
 class ReactNativePlaypen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2
+      })
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows([
+        { title: 'Thing1' },
+        { title: 'Thing2' },
+        { title: 'Thing3' },
+        { title: 'Thing4' },
+        { title: 'Thing1' },
+        { title: 'Thing2' },
+        { title: 'Thing3' },
+        { title: 'Thing4' },
+        { title: 'Thing1' },
+        { title: 'Thing2' },
+        { title: 'Thing3' },
+        { title: 'Thing4' },
+        { title: 'Thing1' },
+        { title: 'Thing2' },
+        { title: 'Thing3' },
+        { title: 'Thing4' },
+        { title: 'Thing1' },
+        { title: 'Thing2' },
+        { title: 'Thing3' },
+        { title: 'Thing4' },
+        { title: 'Thing1' },
+        { title: 'Thing2' },
+        { title: 'Thing3' },
+        { title: 'Thing4' },
+        { title: 'Thing1' },
+        { title: 'Thing2' },
+        { title: 'Thing3' },
+        { title: 'Thing4' },
+        { title: 'Thing1' },
+        { title: 'Thing2' },
+        { title: 'Thing3' },
+        { title: 'Thing4' },
+      ])
+    })
+  }
+
+  _renderItem(item) {
+    return (
+      <CategoryListItem item={item} onpress={() => {}} />
+    );
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
+      <View style={style.container}>
+        <Text style={style.welcome}>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
+        <Text style={style.instructions}>
+          To get xxstarted, edit index.android.js
         </Text>
-        <Text style={styles.instructions}>
+        <Text style={style.instructions}>
           Shake or press menu button for dev menu
         </Text>
+
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this._renderItem.bind(this)}
+          style={style.listview}
+        />
+
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+const style = require('./style.js')
 
 AppRegistry.registerComponent('ReactNativePlaypen', () => ReactNativePlaypen);
