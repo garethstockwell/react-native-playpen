@@ -18,6 +18,7 @@ class SplashScene extends Component {
     setTimeout(() => {
       navigator.replace({
         id: 'CategoryListScene',
+        title: 'Home',
       });
     }, 1000);
   }

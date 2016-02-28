@@ -16,6 +16,7 @@ const style = require('../style.js')
 
 const CategoryListScene = require('./CategoryListScene');
 const DiscussionListScene = require('./DiscussionListScene');
+const NavigationBar = require('./NavigationBar');
 const SplashScene = require('./SplashScene');
 
 class App extends Component {
@@ -30,11 +31,13 @@ class App extends Component {
           }
           return Navigator.SceneConfigs.FloatFromRight;
         }}
+        navigationBar={NavigationBar}
       />
     );
   }
 
   renderScene(route, navigator) {
+    console.log('APP renderScene ' + route)
     if (route.id === 'SplashScene') {
       return (
         <SplashScene
@@ -45,7 +48,8 @@ class App extends Component {
     if (route.id === 'CategoryListScene') {
       return (
         <CategoryListScene
-          navigator={navigator} />
+          navigator={navigator} 
+          route={route} />
       );
     }
 
