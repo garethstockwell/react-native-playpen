@@ -42,17 +42,17 @@ class App extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{
-          id: 'SceneSplash'
-        }}
-        renderScene={this.renderScene.bind(this)}
         configureScene={(route) => {
           if (route.sceneConfig) {
             return route.sceneConfig;
           }
           return Navigator.SceneConfigs.FloatFromRight;
         }}
+        initialRoute={{
+          id: 'SceneSplash'
+        }}
         navigationBar={NavigationBar}
+        renderScene={this.renderScene.bind(this)}
       />
     );
   }
@@ -64,6 +64,7 @@ class App extends Component {
       return (
         <SceneSplash
           navigator={navigator}
+          navigationBar={NavigationBar}
           {...route.passProps}
         />
       );

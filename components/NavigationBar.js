@@ -5,9 +5,11 @@
 'use strict';
 
 import React, {
+  Component,
   Navigator,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 
 const style = require('../style.js')
@@ -74,4 +76,11 @@ module.exports = (
     style={style.navbar}
     routeMapper={BreadcrumbRouteMapper} />
 );
+
+//module.exports = (
+//  <Navigator.NavigationBar
+//    style={style.navbar}
+//    routeMapper={RouteMapper} />
+//);
+
 

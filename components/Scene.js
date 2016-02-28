@@ -21,26 +21,15 @@ class Scene extends Component {
   }
 
   render() {
-    return (
-      <Navigator
-        renderScene={this.renderScene.bind(this)}
-        navigator={this.props.navigator}
-      />
-    );
-  }
-
-  renderScene(route, navigator) {
-    let navBar = navigator.navigationBar;
-    if (navBar) {
-        navBar.setNativeProps({ backgroundColor: '#ff0000' });
-    }
+    var navBar = this.props.navigationBar;
+    console.log(navBar);
 
     var body = this.renderBody()
     return (
       <View style={style.body}>
         {body}
       </View>
-    )
+    );
   }
 }
 
