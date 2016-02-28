@@ -21,13 +21,16 @@ class SceneCategoryList extends Scene {
     })
   }
 
-  renderScene(route, navigator) {
+  _onScroll() {
+    this.setState({ hideNavBar: true });
+  }
+
+  renderBody() {
     return (
-      <View style={style.container}>
-        <CategoryList
-          onPress={(title) => this._onPressCategory(title)}
-        />
-      </View>
+      <CategoryList
+        onPress={(title) => this._onPressCategory(title)}
+        onScroll={() => this._onScroll()}
+      />
     );
   }
 }

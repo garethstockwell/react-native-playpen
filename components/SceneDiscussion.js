@@ -14,11 +14,9 @@ const style = require('../style.js')
 const Scene = require('./Scene');
 
 class SceneDiscussion extends Scene {
-  renderScene(route, navigator) {
+  renderBody() {
     return (
-      <View style={style.container}>
-        <Text>TODO</Text>
-      </View>
+      <Text>TODO</Text>
     );
   }
 }

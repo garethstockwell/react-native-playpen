@@ -42,7 +42,9 @@ class App extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'SceneSplash'}}
+        initialRoute={{
+          id: 'SceneSplash'
+        }}
         renderScene={this.renderScene.bind(this)}
         configureScene={(route) => {
           if (route.sceneConfig) {
@@ -61,7 +63,9 @@ class App extends Component {
     if (route.id === 'SceneSplash') {
       return (
         <SceneSplash
-          navigator={navigator} />
+          navigator={navigator}
+          {...route.passProps}
+        />
       );
     }
 
@@ -69,7 +73,8 @@ class App extends Component {
       return (
         <SceneCategoryList
           navigator={navigator} 
-          route={route} />
+          route={route}
+        />
       );
     }
 
@@ -77,7 +82,7 @@ class App extends Component {
       return (
         <SceneCategory
           navigator={navigator}
-          title={route.title}
+          {...route.passProps}
         />
       );
     }
@@ -87,6 +92,7 @@ class App extends Component {
         <SceneDiscussion
           navigator={navigator}
           title={route.title}
+          {...route.passProps}
         />
       );
     }

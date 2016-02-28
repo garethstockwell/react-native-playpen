@@ -9,21 +9,21 @@ import React, {
 } from 'react-native';
 
 const styles = StyleSheet.create({
+  splash: {
+    flex: 1,
+    backgroundColor: '#0000ff',
+  },
+
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+
+  body: {
+    flex: 1,
+    marginTop: 50,
   },
 
   listview: {
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   li: {
     backgroundColor: '#fff',
     borderBottomColor: '#eee',
-    borderColor: 'transparent',
+    borderColor: '#ff0000',
     borderWidth: 1,
     paddingLeft: 16,
     paddingTop: 14,

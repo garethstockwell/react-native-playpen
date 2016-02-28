@@ -21,13 +21,11 @@ class SceneCategory extends Scene {
     })
   }
 
-  renderScene(route, navigator) {
+  renderBody() {
     return (
-      <View style={style.container}>
-        <DiscussionList
-          onPress={(title) => this._onPressDiscussion(title)}
-        />
-      </View>
+      <DiscussionList
+        onPress={(title) => this._onPressDiscussion(title)}
+      />
     );
   }
 }

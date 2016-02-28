@@ -31,6 +31,18 @@ class CategoryList extends React.Component {
         { title: 'Category1', count: 123 },
         { title: 'Category2', count: 0 },
         { title: 'Category3', count: 99 },
+        { title: 'Category4', count: 99 },
+        { title: 'Category5', count: 99 },
+        { title: 'Category6', count: 99 },
+        { title: 'Category7', count: 99 },
+        { title: 'Category8', count: 99 },
+        { title: 'Category9', count: 99 },
+        { title: 'Category10', count: 99 },
+        { title: 'Category11', count: 99 },
+        { title: 'Category12', count: 99 },
+        { title: 'Category13', count: 99 },
+        { title: 'Category14', count: 99 },
+        { title: 'Category15', count: 99 },
       ])
     })
   }
@@ -47,13 +59,11 @@ class CategoryList extends React.Component {
   render() {
     return (
       <View style={style.container}>
-        <Text style={style.welcome}>
-          Categories
-        </Text>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderItem.bind(this)}
           style={style.listview}
+          onScroll={this.props.onScroll}
         />
       </View>
     );

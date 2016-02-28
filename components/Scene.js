@@ -7,11 +7,19 @@
 import React, {
   Component,
   Navigator,
+  View,
 } from 'react-native';
 
 const style = require('../style.js')
 
 class Scene extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hideNavBar: false,
+    }
+  }
+
   render() {
     return (
       <Navigator
@@ -19,6 +27,20 @@ class Scene extends Component {
         navigator={this.props.navigator}
       />
     );
+  }
+
+  renderScene(route, navigator) {
+    let navBar = navigator.navigationBar;
+    if (navBar) {
+        navBar.setNativeProps({ backgroundColor: '#ff0000' });
+    }
+
+    var body = this.renderBody()
+    return (
+      <View style={style.body}>
+        {body}
+      </View>
+    )
   }
 }
 

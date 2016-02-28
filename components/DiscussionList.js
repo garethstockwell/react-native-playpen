@@ -47,9 +47,6 @@ class DiscussionList extends React.Component {
   render() {
     return (
       <View style={style.container}>
-        <Text style={style.welcome}>
-          Discussions ({this.props.name})
-        </Text>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderItem.bind(this)}
