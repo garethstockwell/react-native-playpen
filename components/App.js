@@ -15,11 +15,11 @@ import React, {
 
 const style = require('../style.js')
 
-const CategoryListScene = require('./CategoryListScene');
-const DiscussionListScene = require('./DiscussionListScene');
-const DiscussionScene = require('./DiscussionScene');
+const SceneCategoryList = require('./SceneCategoryList');
+const SceneCategory = require('./SceneCategory');
+const SceneDiscussion = require('./SceneDiscussion');
 const NavigationBar = require('./NavigationBar');
-const SplashScene = require('./SplashScene');
+const SceneSplash = require('./SceneSplash');
 
 // Based on
 // http://blog.paracode.com/2016/01/05/routing-and-navigation-in-react-native/
@@ -42,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{id: 'SplashScene'}}
+        initialRoute={{id: 'SceneSplash'}}
         renderScene={this.renderScene.bind(this)}
         configureScene={(route) => {
           if (route.sceneConfig) {
@@ -58,33 +58,33 @@ class App extends Component {
   renderScene(route, navigator) {
     androidAddBackButtonListener(navigator);
 
-    if (route.id === 'SplashScene') {
+    if (route.id === 'SceneSplash') {
       return (
-        <SplashScene
+        <SceneSplash
           navigator={navigator} />
       );
     }
 
-    if (route.id === 'CategoryListScene') {
+    if (route.id === 'SceneCategoryList') {
       return (
-        <CategoryListScene
+        <SceneCategoryList
           navigator={navigator} 
           route={route} />
       );
     }
 
-    if (route.id === 'DiscussionListScene') {
+    if (route.id === 'SceneCategory') {
       return (
-        <DiscussionListScene
+        <SceneCategory
           navigator={navigator}
           title={route.title}
         />
       );
     }
 
-    if (route.id === 'DiscussionScene') {
+    if (route.id === 'SceneDiscussion') {
       return (
-        <DiscussionScene
+        <SceneDiscussion
           navigator={navigator}
           title={route.title}
         />

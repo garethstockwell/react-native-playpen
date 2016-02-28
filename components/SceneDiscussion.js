@@ -1,5 +1,5 @@
 /**
- * DiscussionScene.js
+ * SceneDiscussion.js
  */
 
 'use strict';
@@ -13,7 +13,7 @@ const style = require('../style.js')
 
 const Scene = require('./Scene');
 
-class DiscussionScene extends Scene {
+class SceneDiscussion extends Scene {
   renderScene(route, navigator) {
     return (
       <View style={style.container}>
@@ -23,5 +23,5 @@ class DiscussionScene extends Scene {
   }
 }
 
-module.exports = DiscussionScene;
+module.exports = SceneDiscussion;
 

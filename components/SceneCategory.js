@@ -1,5 +1,5 @@
 /**
- * DiscussionListScene.js
+ * SceneCategory.js
  */
 
 'use strict';
@@ -13,11 +13,11 @@ const style = require('../style.js')
 const DiscussionList = require('./DiscussionList');
 const Scene = require('./Scene');
 
-class DiscussionListScene extends Scene {
+class SceneCategory extends Scene {
   _onPressDiscussion(discussionTitle) {
     this.props.navigator.push({
-      id: 'DiscussionScene',
-      title: discussionTitle,
+      id: 'SceneDiscussion',
+      title: 'Discussion',
     })
   }
 
@@ -32,5 +32,5 @@ class DiscussionListScene extends Scene {
   }
 }
 
-module.exports = DiscussionListScene;
+module.exports = SceneCategory;
 

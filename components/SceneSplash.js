@@ -1,5 +1,5 @@
 /**
- * SplashScene.js
+ * SceneSplash.js
  */
 
 'use strict';
@@ -13,12 +13,12 @@ const style = require('../style.js')
 
 const Scene = require('./Scene');
 
-class SplashScene extends Scene {
+class SceneSplash extends Scene {
   componentWillMount() {
     var navigator = this.props.navigator;
     setTimeout(() => {
       navigator.replace({
-        id: 'CategoryListScene',
+        id: 'SceneCategoryList',
         title: 'Home',
       });
     }, 1000);
@@ -33,5 +33,5 @@ class SplashScene extends Scene {
   }
 }
 
-module.exports = SplashScene;
+module.exports = SceneSplash;
 

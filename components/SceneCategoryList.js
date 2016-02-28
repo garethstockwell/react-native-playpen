@@ -1,5 +1,5 @@
 /**
- * CategoryListScene.js
+ * SceneCategoryList.js
  */
 
 'use strict';
@@ -13,10 +13,10 @@ const style = require('../style.js')
 const CategoryList = require('./CategoryList');
 const Scene = require('./Scene');
 
-class CategoryListScene extends Scene {
+class SceneCategoryList extends Scene {
   _onPressCategory(categoryTitle) {
     this.props.navigator.push({
-      id: 'DiscussionListScene',
+      id: 'SceneCategory',
       title: categoryTitle,
     })
   }
@@ -32,5 +32,5 @@ class CategoryListScene extends Scene {
   }
 }
 
-module.exports = CategoryListScene;
+module.exports = SceneCategoryList;
 
