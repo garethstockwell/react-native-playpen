@@ -37,7 +37,10 @@ class DiscussionList extends React.Component {
 
   _renderItem(item) {
     return (
-      <DiscussionListItem item={item} onpress={() => {}} />
+      <DiscussionListItem
+        item={item}
+        onPress={(name) => this.props.onPress(name)}
+      />
     );
   }
 

@@ -16,7 +16,9 @@ const style = require('../style.js')
 class DiscussionListItem extends React.Component {
   render() {
     return (
-      <TouchableHighlight onPress={this.props.onPress}>
+      <TouchableHighlight
+        onPress={() => this.props.onPress(this.props.item.title)}
+      >
         <View style={style.li}>
           <Text style={style.liText}>{this.props.item.title}</Text>
         </View>

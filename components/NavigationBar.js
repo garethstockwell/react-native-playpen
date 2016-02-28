@@ -39,11 +39,15 @@ var BreadcrumbRouteMapper = {
   }
 };
 
-var NavigationBarRouteMapper = {
+var RouteMapper = {
   LeftButton(route, navigator, index, navState) {
+    if (index == 0) {
+      return null;
+    }
+
     return (
       <TouchableOpacity
-        onPress={() => navigator.parentNavigator.pop()}
+        onPress={() => navigator.pop()}
       >
         <Text>
           Back
@@ -57,9 +61,11 @@ var NavigationBarRouteMapper = {
   },
 
   Title(route, navigator, index, navState) {
-    console.log('ROUTE ' + route)
-    console.log('INDEX ' + index)
-    return null;
+    return (
+      <Text>
+        {route.title}
+      </Text>
+    );
   }
 };
 

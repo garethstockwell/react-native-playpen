@@ -22,10 +22,10 @@ class CategoryListItem extends React.Component {
 
     return (
       <TouchableHighlight
-        onPress={() => this.props.onPress(this.props.item.name)}
+        onPress={() => this.props.onPress(this.props.item.title)}
       >
         <View style={style.li}>
-          <Text style={style.liText}>{this.props.item.name}{count}</Text>
+          <Text style={style.liText}>{this.props.item.title}{count}</Text>
         </View>
       </TouchableHighlight>
     );

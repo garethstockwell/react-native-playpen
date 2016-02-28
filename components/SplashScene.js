@@ -5,14 +5,15 @@
 'use strict';
 
 import React, {
-  Component,
   Text,
-  View
+  View,
 } from 'react-native';
 
 const style = require('../style.js')
 
-class SplashScene extends Component {
+const Scene = require('./Scene');
+
+class SplashScene extends Scene {
   componentWillMount() {
     var navigator = this.props.navigator;
     setTimeout(() => {
@@ -23,7 +24,7 @@ class SplashScene extends Component {
     }, 1000);
   }
 
-  render() {
+  renderScene(route, navigator) {
     return (
       <View style={style.container}>
         <Text>ReactNativePlaypen (splash screen)</Text>

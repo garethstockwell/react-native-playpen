@@ -9,13 +9,14 @@ import React, {
   Navigator,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
 
 const style = require('../style.js')
 
 const CategoryListScene = require('./CategoryListScene');
 const DiscussionListScene = require('./DiscussionListScene');
+const DiscussionScene = require('./DiscussionScene');
 const NavigationBar = require('./NavigationBar');
 const SplashScene = require('./SplashScene');
 
@@ -57,7 +58,16 @@ class App extends Component {
       return (
         <DiscussionListScene
           navigator={navigator}
-          name={route.name}
+          title={route.title}
+        />
+      );
+    }
+
+    if (route.id === 'DiscussionScene') {
+      return (
+        <DiscussionScene
+          navigator={navigator}
+          title={route.title}
         />
       );
     }

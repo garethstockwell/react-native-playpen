@@ -28,9 +28,9 @@ class CategoryList extends React.Component {
   componentDidMount() {
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows([
-        { name: 'Category1', count: 123 },
-        { name: 'Category2', count: 0 },
-        { name: 'Category3', count: 99 },
+        { title: 'Category1', count: 123 },
+        { title: 'Category2', count: 0 },
+        { title: 'Category3', count: 99 },
       ])
     })
   }
@@ -39,7 +39,7 @@ class CategoryList extends React.Component {
     return (
       <CategoryListItem
         item={item}
-        onPress={(name) => this.props.onPress(name)}
+        onPress={(title) => this.props.onPress(title)}
       />
     );
   }

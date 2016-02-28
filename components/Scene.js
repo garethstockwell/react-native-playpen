@@ -8,7 +8,7 @@ import React, {
   Component,
   Navigator,
   Text,
-  View
+  View,
 } from 'react-native';
 
 const style = require('../style.js')
