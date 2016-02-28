@@ -7,13 +7,9 @@
 import React, {
   Component,
   Navigator,
-  Text,
-  View,
 } from 'react-native';
 
 const style = require('../style.js')
-
-const NavigationBar = require('./NavigationBar');
 
 class Scene extends Component {
   render() {

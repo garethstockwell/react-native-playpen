@@ -21,7 +21,8 @@ const DiscussionScene = require('./DiscussionScene');
 const NavigationBar = require('./NavigationBar');
 const SplashScene = require('./SplashScene');
 
-// Based on https://leanpub.com/programming-react-native
+// Based on
+// http://blog.paracode.com/2016/01/05/routing-and-navigation-in-react-native/
 var _navigator;
 function androidAddBackButtonListener(navigator) {
   if (!_navigator) {
