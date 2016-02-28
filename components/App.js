@@ -5,6 +5,7 @@
 'use strict';
 
 import React, {
+  BackAndroid,
   Component,
   Navigator,
   Text,
@@ -19,6 +20,22 @@ const DiscussionListScene = require('./DiscussionListScene');
 const DiscussionScene = require('./DiscussionScene');
 const NavigationBar = require('./NavigationBar');
 const SplashScene = require('./SplashScene');
+
+// Based on https://leanpub.com/programming-react-native
+var _navigator;
+function androidAddBackButtonListener(navigator) {
+  if (!_navigator) {
+    _navigator = navigator;
+
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+      if (_navigator.getCurrentRoutes().length === 1) {
+        return false;
+      }
+      _navigator.pop();
+      return true;
+    });
+  }
+}
 
 class App extends Component {
   render() {
@@ -38,7 +55,8 @@ class App extends Component {
   }
 
   renderScene(route, navigator) {
-    console.log('APP renderScene ' + route)
+    androidAddBackButtonListener(navigator);
+
     if (route.id === 'SplashScene') {
       return (
         <SplashScene
