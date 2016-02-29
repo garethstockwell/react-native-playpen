@@ -15,10 +15,10 @@ import React, {
 
 const style = require('../style.js')
 
+const NavigationBar = require('./NavigationBar');
 const SceneCategoryList = require('./SceneCategoryList');
 const SceneCategory = require('./SceneCategory');
 const SceneDiscussion = require('./SceneDiscussion');
-const NavigationBar = require('./NavigationBar');
 const SceneSplash = require('./SceneSplash');
 
 // Based on
@@ -39,7 +39,15 @@ function androidAddBackButtonListener(navigator) {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loaded: false,
+    }
+  }
+
   render() {
+    if (this.state.loaded) {
     return (
       <Navigator
         configureScene={(route) => {
@@ -49,12 +57,22 @@ class App extends Component {
           return Navigator.SceneConfigs.FloatFromRight;
         }}
         initialRoute={{
-          id: 'SceneSplash'
+          id: 'SceneCategoryList',
+          title: 'Home'
         }}
         navigationBar={NavigationBar}
         renderScene={this.renderScene.bind(this)}
       />
     );
+    } else {
+      return (
+        <SceneSplash />
+      );
+    }
+  }
+
+  componentWillMount() {
+    setTimeout(() => { this.setState({ loaded: true}); }, 1000);
   }
 
   renderScene(route, navigator) {
@@ -64,7 +82,6 @@ class App extends Component {
       return (
         <SceneSplash
           navigator={navigator}
-          navigationBar={NavigationBar}
           {...route.passProps}
         />
       );
@@ -73,7 +90,8 @@ class App extends Component {
     if (route.id === 'SceneCategoryList') {
       return (
         <SceneCategoryList
-          navigator={navigator} 
+          navigator={navigator}
+          navigationBar={NavigationBar}
           route={route}
         />
       );

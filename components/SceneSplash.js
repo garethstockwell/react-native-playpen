@@ -13,39 +13,21 @@ import React, {
 
 const style = require('../style.js')
 
-const Scene = require('./Scene');
-
-class SceneSplash extends Scene {
+class SceneSplash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'hello',
-    }
+      text: 'loading'
+    };
   }
 
-  componentWillMount() {
-    setTimeout(() => { this.hideNavBar(); }, 1000);
-  }
-
-  hideNavBar() {
-    this.setState({ text: 'foo' });
-
-    this.setState({ hideNavBar: true });
-
-    setTimeout(() => { this.close(); }, 1000);
-  }
-
-  close() {
-    var navigator = this.props.navigator;
-    navigator.replace({
-      id: 'SceneCategoryList',
-      title: 'Home',
-    });
-  }
-
-  renderBody() {
+  render() {
     return (
-      <Text>ReactNativePlaypen ({this.state.text})</Text>
+      <View style={style.splash}>
+        <Text style={style.splashText}>
+          ReactNativePlaypen ({this.state.text})
+        </Text>
+      </View>
     );
   }
 }

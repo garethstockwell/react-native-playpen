@@ -21,9 +21,15 @@ class Scene extends Component {
   }
 
   render() {
-    var navBar = this.props.navigationBar;
-    console.log(navBar);
+    return (
+      <Navigator
+        renderScene={this.renderScene.bind(this)}
+        navigator={this.props.navigator}
+      />
+    );
+  }
 
+  renderScene(route, navigator) {
     var body = this.renderBody()
     return (
       <View style={style.body}>

@@ -11,13 +11,20 @@ import React, {
 const styles = StyleSheet.create({
   splash: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#0000ff',
+  },
+
+  splashText: {
+    fontSize: 32,
+    color: 'white',
   },
 
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#F5FCFF',
   },
 
