@@ -30,6 +30,11 @@ class Scene extends Component {
   }
 
   renderScene(route, navigator) {
+    let navBar = this.props.navigationBar;
+    if (navBar) {
+      // TODO
+    }
+
     var body = this.renderBody()
     return (
       <View style={style.body}>

@@ -71,8 +71,33 @@ var RouteMapper = {
   }
 };
 
+class NavigationBar extends Navigator.BreadcrumbNavigationBar {
+  constructor(props) {
+    super(props)
+    this.state = {
+      hidden: false,
+    }
+  }
+
+  setHidden(value) {
+    console.log('setHidden ' + value);
+  }
+
+  render() {
+    if (this.state.hidden) {
+      return '';
+    } else {
+      return (
+        <View style={{flex:1}}>
+        {super.render()}
+        </View>
+      )
+    }
+  }
+}
+
 module.exports = (
-  <Navigator.BreadcrumbNavigationBar
+  <NavigationBar
     style={style.navbar}
     routeMapper={BreadcrumbRouteMapper} />
 );

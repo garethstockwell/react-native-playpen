@@ -54,6 +54,8 @@ const styles = StyleSheet.create({
   navbar: {
     backgroundColor: '#e9eaed',
     height: 50,
+    position: 'absolute',
+    top: 0,
   },
 });
 
