@@ -1,5 +1,5 @@
 /**
- * SceneCategory.js
+ * SceneCategory
  */
 
 'use strict';
@@ -8,9 +8,9 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../style.js')
+const style = require('../Style')
 
-const DiscussionList = require('./DiscussionList');
+const DiscussionList = require('../component/DiscussionList');
 const Scene = require('./Scene');
 
 class SceneCategory extends Scene {

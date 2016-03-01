@@ -1,5 +1,5 @@
 /**
- * Scene.js
+ * Scene
  */
 
 'use strict';
@@ -10,7 +10,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../style.js')
+const style = require('../Style')
 
 class Scene extends Component {
   constructor(props) {

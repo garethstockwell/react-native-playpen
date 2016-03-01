@@ -13,13 +13,13 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../style.js')
+const style = require('./Style')
 
-const NavigationBar = require('./NavigationBar');
-const SceneCategoryList = require('./SceneCategoryList');
-const SceneCategory = require('./SceneCategory');
-const SceneDiscussion = require('./SceneDiscussion');
-const SceneSplash = require('./SceneSplash');
+const NavigationBar = require('./component/NavigationBar');
+const SceneCategoryList = require('./scene/SceneCategoryList');
+const SceneCategory = require('./scene/SceneCategory');
+const SceneDiscussion = require('./scene/SceneDiscussion');
+const SceneSplash = require('./scene/SceneSplash');
 
 // Based on
 // http://blog.paracode.com/2016/01/05/routing-and-navigation-in-react-native/

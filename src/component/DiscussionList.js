@@ -1,5 +1,5 @@
 /**
- * DiscussionList.js
+ * DiscussionList
  */
 
 'use strict';
@@ -11,7 +11,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../style.js')
+const style = require('../Style')
 
 const DiscussionListItem = require('./DiscussionListItem');
 

@@ -9,7 +9,7 @@ import React, {
   AppRegistry,
 } from 'react-native';
 
-const App = require('./components/App');
+const App = require('./src/App');
 
 AppRegistry.registerComponent('ReactNativePlaypen', () => App);
 

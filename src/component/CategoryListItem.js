@@ -1,5 +1,5 @@
 /**
- * CategoryListItem.js
+ * CategoryListItem
  */
 
 'use strict';
@@ -11,7 +11,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../style.js')
+const style = require('../Style')
 
 class CategoryListItem extends React.Component {
   render() {

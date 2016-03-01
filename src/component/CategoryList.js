@@ -1,5 +1,5 @@
 /**
- * CategoryList.js
+ * CategoryList
  */
 
 'use strict';
@@ -11,7 +11,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../style.js')
+const style = require('../Style')
 
 const CategoryListItem = require('./CategoryListItem');
 
