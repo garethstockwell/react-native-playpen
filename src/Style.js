@@ -8,54 +8,89 @@ import React, {
   StyleSheet,
 } from 'react-native';
 
+var COLOR = {
+    BLACK:      '#000000',
+    GRAY_01:    '#373B3F',
+    GRAY_02:    '#999DA2',
+    WHITE:      '#FFFFFF',
+
+    BLUE_DARK:  '#2C3E50',
+    BLUE_MID:   '#2980B9',
+    BLUE_LIGHT: '#3498DB',
+
+    GOLD:       '#F1C40F',
+
+    PURPLE:     '#9B59B6',
+};
+
+var DIM = {
+    HEIGHT_NAVBAR:        50,
+
+    HEIGHT_LIST_MARGIN:    5,
+    WIDTH_LIST_MARGIN:    10,
+    PADDING_LIST:          5,
+};
+
+var FONT_FAMILY = 'Lato';
+
+var FONT_SIZE = {
+    SPLASH:               32,
+    NAVBAR:               16,
+
+    LIST_TITLE:           16,
+};
+
 const styles = StyleSheet.create({
   splash: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
+    backgroundColor: COLOR.BLUE_MID,
     justifyContent: 'center',
-    backgroundColor: '#0000ff',
   },
 
   splashText: {
-    fontSize: 32,
-    color: 'white',
+    color: COLOR.WHITE,
+    fontFamily: FONT_FAMILY,
+    fontSize: FONT_SIZE.SPLASH,
   },
 
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
+  navbar: {
+    backgroundColor: COLOR.BLUE_DARK,
+    position: 'absolute',
+    top: 0,
   },
 
   body: {
     flex: 1,
-    marginTop: 50,
+    marginTop: DIM.HEIGHT_NAVBAR,
+  },
+
+  container: {
+    alignItems: 'center',
+    backgroundColor: COLOR.GRAY_02,
+    flex: 1,
+    justifyContent: 'center',
   },
 
   listview: {
     flex: 1,
+    alignSelf: 'stretch',
+    marginTop: DIM.HEIGHT_LIST_MARGIN,
   },
 
   li: {
-    backgroundColor: '#fff',
-    borderBottomColor: '#eee',
-    borderColor: '#ff0000',
-    borderWidth: 1,
-    paddingLeft: 16,
-    paddingTop: 14,
-    paddingBottom: 16,
-  },
-  liText: {
-    color: '#333',
-    fontSize: 16,
+    backgroundColor: COLOR.WHITE,
+    borderWidth: 0,
+    marginLeft: DIM.WIDTH_LIST_MARGIN,
+    marginRight: DIM.WIDTH_LIST_MARGIN,
+    marginTop: DIM.HEIGHT_LIST_MARGIN,
+    marginBottom: DIM.HEIGHT_LIST_MARGIN,
+    padding: DIM.PADDING_LIST,
   },
 
-  navbar: {
-    backgroundColor: '#e9eaed',
-    height: 50,
-    position: 'absolute',
-    top: 0,
+  liText: {
+    color: COLOR.BLUE_DARK,
+    fontSize: FONT_SIZE.LIST_TITLE,
   },
 });
 
