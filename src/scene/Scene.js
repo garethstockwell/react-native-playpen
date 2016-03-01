@@ -16,6 +16,7 @@ class Scene extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
       hideNavBar: false,
     }
   }
@@ -35,12 +36,20 @@ class Scene extends Component {
       // TODO: hide navigation bar when scroll view is pulled down
     }
 
-    var body = this.renderBody()
-    return (
-      <View style={style.body}>
-        {body}
-      </View>
-    );
+    if (this.state.loading) {
+      renderLoading();
+    } else {
+      var body = this.renderBody()
+      return (
+        <View style={style.body}>
+          {body}
+        </View>
+      );
+    }
+  }
+
+  renderLoading() {
+    // TODO: a
   }
 }
 

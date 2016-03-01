@@ -11,6 +11,9 @@ import React, {
   View,
 } from 'react-native';
 
+import Data from '../data/Data';
+let api = Data.instance;
+
 const style = require('../Style')
 
 const CategoryListItem = require('./CategoryListItem');
