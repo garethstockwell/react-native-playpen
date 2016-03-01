@@ -32,7 +32,7 @@ class Scene extends Component {
   renderScene(route, navigator) {
     let navBar = this.props.navigationBar;
     if (navBar) {
-      // TODO
+      // TODO: hide navigation bar when scroll view is pulled down
     }
 
     var body = this.renderBody()
