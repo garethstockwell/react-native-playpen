@@ -26,8 +26,8 @@ var COLOR = {
 var DIM = {
     HEIGHT_NAVBAR:        50,
 
-    HEIGHT_LIST_MARGIN:    5,
-    WIDTH_LIST_MARGIN:    10,
+    HEIGHT_LIST_SEP:       1,
+    WIDTH_LIST_MARGIN:     0,
     PADDING_LIST:          5,
 };
 
@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
   listview: {
     flex: 1,
     alignSelf: 'stretch',
-    marginTop: DIM.HEIGHT_LIST_MARGIN,
   },
 
   li: {
@@ -83,8 +82,8 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     marginLeft: DIM.WIDTH_LIST_MARGIN,
     marginRight: DIM.WIDTH_LIST_MARGIN,
-    marginTop: DIM.HEIGHT_LIST_MARGIN,
-    marginBottom: DIM.HEIGHT_LIST_MARGIN,
+    marginTop: 0,
+    marginBottom: DIM.HEIGHT_LIST_SEP,
     padding: DIM.PADDING_LIST,
   },
 
