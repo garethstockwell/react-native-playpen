@@ -8,17 +8,25 @@ import React, {
   Component,
   Navigator,
   View,
+  ProgressBarAndroid,
 } from 'react-native';
 
 const Styles = require('../Styles')
+
+const Spinner = require('../Components/Spinner')
 
 class Scene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
+      loading: true,
       hideNavBar: false,
     }
+  }
+
+  componentWillMount() {
+    // TODO: hook this up to completion of the network fetch
+    setTimeout(() => { this.setState({ loading: false}); }, 1000);
   }
 
   render() {
@@ -36,20 +44,22 @@ class Scene extends Component {
       // TODO: hide navigation bar when scroll view is pulled down
     }
 
+    var body = null;
+
     if (this.state.loading) {
-      renderLoading();
-    } else {
-      var body = this.renderBody()
       return (
-        <View style={Styles.body}>
-          {body}
+        <View style={Styles.spinnerView}>
+          <Spinner />
         </View>
       );
     }
-  }
 
-  renderLoading() {
-    // TODO: a
+    body = this.renderBody()
+    return (
+      <View style={Styles.body}>
+        {body}
+      </View>
+    );
   }
 }
 

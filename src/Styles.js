@@ -91,6 +91,17 @@ const styles = StyleSheet.create({
     color: COLOR.BLUE_DARK,
     fontSize: FONT_SIZE.LIST_TITLE,
   },
+
+  spinnerView: {
+    alignItems: 'center',
+    flex: 1,
+    backgroundColor: COLOR.BLUE_DARK,
+    justifyContent: 'center',
+  },
+
+  spinner: {
+    flex: 1,
+  },
 });
 
 module.exports = styles;
