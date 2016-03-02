@@ -35,15 +35,18 @@ class ClientVanilla {
     return this[singleton];
   }
 
-  _fetch(func) {
-    return fetch(URL_API + func)
-      .then(ApiUtils.checkStatus)
-      .then(response => response.json())
+  _fetch(func, callback) {
+    let url = URL_API + func
+    let resp = fetch(url)
+      .then(resp => resp.json())
+      .then(resp => callback(resp))
       .catch(e => e)
+      .done()
+    return resp;
   }
 
-  categoryList() {
-    return this._fetch('/categories/list')
+  categoryList(callback) {
+    return this._fetch('/categories/list.json', callback);
   }
 };
 

@@ -28,32 +28,44 @@ class CategoryList extends React.Component {
   }
 
   componentDidMount() {
+    console.log('LOADING');
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows([
-        { title: 'Category1', count: 123 },
-        { title: 'Category2', count: 0 },
-        { title: 'Category3', count: 99 },
-        { title: 'Category4', count: 99 },
-        { title: 'Category5', count: 99 },
-        { title: 'Category6', count: 99 },
-        { title: 'Category7', count: 99 },
-        { title: 'Category8', count: 99 },
-        { title: 'Category9', count: 99 },
-        { title: 'Category10', count: 99 },
-        { title: 'Category11', count: 99 },
-        { title: 'Category12', count: 99 },
-        { title: 'Category13', count: 99 },
-        { title: 'Category14', count: 99 },
-        { title: 'Category15', count: 99 },
-      ])
+        { Name: 'Category1', CountDiscussions: 123 },
+        { Name: 'Category2', CountDiscussions: 0 },
+        { Name: 'Category3', CountDiscussions: 99 },
+        { Name: 'Category4', CountDiscussions: 99 },
+        { Name: 'Category5', CountDiscussions: 99 },
+        { Name: 'Category6', CountDiscussions: 99 },
+        { Name: 'Category7', CountDiscussions: 99 },
+        { Name: 'Category8', CountDiscussions: 99 },
+        { Name: 'Category9', CountDiscussions: 99 },
+        { Name: 'Category10', CountDiscussions: 99 },
+        { Name: 'Category11', CountDiscussions: 99 },
+        { Name: 'Category12', CountDiscussions: 99 },
+        { Name: 'Category13', CountDiscussions: 99 },
+        { Name: 'Category14', CountDiscussions: 99 },
+        { Name: 'Category15', CountDiscussions: 99 },
+      ]),
+      loading: true, // TODO: propagate to parent scene
     })
+    Client.categoryList(this._onResponse);
+  }
+
+  _onResponse(data) {
+    console.log('LOADED');
+    // TODO: data view is not updating
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(data),
+      loading: false
+    });
   }
 
   _renderItem(item) {
     return (
       <CategoryListItem
         item={item}
-        onPress={(title) => this.props.onPress(title)}
+        onPress={(Name) => this.props.onPress(Name)}
       />
     );
   }

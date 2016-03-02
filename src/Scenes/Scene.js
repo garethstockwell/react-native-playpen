@@ -19,14 +19,9 @@ class Scene extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      loading: false,
       hideNavBar: false,
     }
-  }
-
-  componentWillMount() {
-    // TODO: hook this up to completion of the network fetch
-    setTimeout(() => { this.setState({ loading: false}); }, 1000);
   }
 
   render() {
