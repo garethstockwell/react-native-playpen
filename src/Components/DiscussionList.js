@@ -11,7 +11,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../Style')
+const Styles = require('../Styles')
 
 const DiscussionListItem = require('./DiscussionListItem');
 
@@ -46,11 +46,11 @@ class DiscussionList extends React.Component {
 
   render() {
     return (
-      <View style={style.container}>
+      <View style={Styles.container}>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderItem.bind(this)}
-          style={style.listview}
+          style={Styles.listview}
         />
       </View>
     );

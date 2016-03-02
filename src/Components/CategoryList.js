@@ -11,10 +11,9 @@ import React, {
   View,
 } from 'react-native';
 
-import Data from '../data/Data';
-let api = Data.instance;
+import Client from '../Client/Client';
 
-const style = require('../Style')
+const Styles = require('../Styles')
 
 const CategoryListItem = require('./CategoryListItem');
 
@@ -61,11 +60,11 @@ class CategoryList extends React.Component {
 
   render() {
     return (
-      <View style={style.container}>
+      <View style={Styles.container}>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderItem.bind(this)}
-          style={style.listview}
+          style={Styles.listview}
           onScroll={this.props.onScroll}
         />
       </View>

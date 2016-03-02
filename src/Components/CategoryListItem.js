@@ -11,7 +11,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../Style')
+const Styles = require('../Styles')
 
 class CategoryListItem extends React.Component {
   render() {
@@ -24,8 +24,8 @@ class CategoryListItem extends React.Component {
       <TouchableHighlight
         onPress={() => this.props.onPress(this.props.item.title)}
       >
-        <View style={style.li}>
-          <Text style={style.liText}>{this.props.item.title}{count}</Text>
+        <View style={Styles.li}>
+          <Text style={Styles.liText}>{this.props.item.title}{count}</Text>
         </View>
       </TouchableHighlight>
     );

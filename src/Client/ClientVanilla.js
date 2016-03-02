@@ -1,5 +1,5 @@
 /**
- * DataVanilla
+ * ClientVanilla
  *
  * Interface to Vanilla Forums API
  * https://blog.vanillaforums.com/api/
@@ -21,7 +21,7 @@ let URL_SITE = 'http://forums.xamarin.com'
 
 let URL_API = URL_SITE + '/api/v1'
 
-class DataVanilla {
+class ClientVanilla {
   constructor(enforcer) {
     if (enforcer != singletonEnforcer) {
       throw "Cannot construct singleton";
@@ -30,7 +30,7 @@ class DataVanilla {
 
   static get instance() {
     if (!this[singleton]) {
-      this[singleton] = new DataVanilla(singletonEnforcer);
+      this[singleton] = new ClientVanilla(singletonEnforcer);
     }
     return this[singleton];
   }
@@ -47,5 +47,5 @@ class DataVanilla {
   }
 };
 
-export { DataVanilla as default };
+export { ClientVanilla as default };
 

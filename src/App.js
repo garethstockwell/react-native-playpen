@@ -13,13 +13,13 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('./Style')
+const Styles = require('./Styles')
 
-const NavigationBar = require('./component/NavigationBar');
-const SceneCategoryList = require('./scene/SceneCategoryList');
-const SceneCategory = require('./scene/SceneCategory');
-const SceneDiscussion = require('./scene/SceneDiscussion');
-const SceneSplash = require('./scene/SceneSplash');
+const NavigationBar = require('./Components/NavigationBar');
+const SceneCategoryList = require('./Scenes/SceneCategoryList');
+const SceneCategory = require('./Scenes/SceneCategory');
+const SceneDiscussion = require('./Scenes/SceneDiscussion');
+const SceneSplash = require('./Scenes/SceneSplash');
 
 // Based on
 // http://blog.paracode.com/2016/01/05/routing-and-navigation-in-react-native/
@@ -121,7 +121,7 @@ class App extends Component {
 
   noRoute(navigator) {
     return (
-      <View style={style.container}>
+      <View style={Styles.container}>
         <TouchableOpacity
             onPress={() => navigator.pop()}>
           <Text style={{color: 'red', fontWeight: 'bold'}}>renderScene</Text>

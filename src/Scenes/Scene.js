@@ -10,7 +10,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../Style')
+const Styles = require('../Styles')
 
 class Scene extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class Scene extends Component {
     } else {
       var body = this.renderBody()
       return (
-        <View style={style.body}>
+        <View style={Styles.body}>
           {body}
         </View>
       );

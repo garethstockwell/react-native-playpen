@@ -8,9 +8,9 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../Style')
+const Styles = require('../Styles')
 
-const CategoryList = require('../component/CategoryList');
+const CategoryList = require('../Components/CategoryList');
 const Scene = require('./Scene');
 
 class SceneCategoryList extends Scene {

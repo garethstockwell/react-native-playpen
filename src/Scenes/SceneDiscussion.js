@@ -9,7 +9,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../Style')
+const Styles = require('../Styles')
 
 const Scene = require('./Scene');
 

@@ -11,7 +11,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../Style')
+const Styles = require('../Styles')
 
 class SceneSplash extends Component {
   constructor(props) {
@@ -23,8 +23,8 @@ class SceneSplash extends Component {
 
   render() {
     return (
-      <View style={style.splash}>
-        <Text style={style.splashText}>
+      <View style={Styles.splash}>
+        <Text style={Styles.splashText}>
           ReactNativePlaypen ({this.state.text})
         </Text>
       </View>

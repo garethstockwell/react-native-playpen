@@ -12,7 +12,7 @@ import React, {
   View,
 } from 'react-native';
 
-const style = require('../Style')
+const Styles = require('../Styles')
 
 var BreadcrumbRouteMapper = {
   rightContentForRoute(route, navigator) {
@@ -33,7 +33,7 @@ var BreadcrumbRouteMapper = {
     return (
       <TouchableOpacity
         onPress={navigator.pop}
-        style={style.crumbSeparatorPlaceholder}
+        style={Styles.crumbSeparatorPlaceholder}
       >
         <Text>&gt;</Text>
       </TouchableOpacity>
@@ -73,13 +73,13 @@ var RouteMapper = {
 
 module.exports = (
   <Navigator.BreadcrumbNavigationBar
-    style={style.navbar}
+    style={Styles.navbar}
     routeMapper={BreadcrumbRouteMapper} />
 );
 
 //module.exports = (
 //  <Navigator.NavigationBar
-//    style={style.navbar}
+//    style={Styles.navbar}
 //    routeMapper={RouteMapper} />
 //);
 
