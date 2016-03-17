@@ -31,7 +31,19 @@ var fetch = function (api, process) {
 
 var categoryList = function () {
     var process = function (data) {
-        return data;
+        var input = data['Categories'];
+        var output = [];
+
+        for (var key in input) {
+            var inval = input[key];
+            var outval = {
+                Name: inval['Name'],
+                CountDiscussions: inval['CountAllDiscussions'],
+            };
+            output.push(outval);
+        }
+
+        return output;
     }
 
     fetch('categories/list.json', process);

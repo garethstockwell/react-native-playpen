@@ -35,10 +35,11 @@ class ClientVanilla {
     return this[singleton];
   }
 
-  _fetch(func, callback) {
+  _fetch(func, process, callback) {
     let url = URL_API + func
     let resp = fetch(url)
       .then(resp => resp.json())
+      .then(resp => process(resp))
       .then(resp => callback(resp))
       .catch(e => e)
       .done()
@@ -46,7 +47,23 @@ class ClientVanilla {
   }
 
   categoryList(callback) {
-    return this._fetch('/categories/list.json', callback);
+    var process = function(data) {
+      var input = data['Categories'];
+      var output = [];
+
+      for (var key in input) {
+        var inval = input[key];
+        var outval = {
+          Name: inval['Name'],
+          CountDiscussions: inval['CountAllDiscussions'],
+        };
+        output.push(outval);
+      }
+
+      return output;
+    }
+
+    return this._fetch('/categories/list.json', process, callback);
   }
 };
 

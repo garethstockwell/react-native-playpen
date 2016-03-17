@@ -28,33 +28,30 @@ class CategoryList extends React.Component {
   }
 
   componentDidMount() {
-    console.log('LOADING');
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows([
-        { Name: 'Category1', CountDiscussions: 123 },
-        { Name: 'Category2', CountDiscussions: 0 },
-        { Name: 'Category3', CountDiscussions: 99 },
-        { Name: 'Category4', CountDiscussions: 99 },
-        { Name: 'Category5', CountDiscussions: 99 },
-        { Name: 'Category6', CountDiscussions: 99 },
-        { Name: 'Category7', CountDiscussions: 99 },
-        { Name: 'Category8', CountDiscussions: 99 },
-        { Name: 'Category9', CountDiscussions: 99 },
-        { Name: 'Category10', CountDiscussions: 99 },
-        { Name: 'Category11', CountDiscussions: 99 },
-        { Name: 'Category12', CountDiscussions: 99 },
-        { Name: 'Category13', CountDiscussions: 99 },
-        { Name: 'Category14', CountDiscussions: 99 },
-        { Name: 'Category15', CountDiscussions: 99 },
+        { Name: 'Dummy Category A', CountDiscussions: 123 },
+        { Name: 'Dummy Category B', CountDiscussions: 0 },
+        { Name: 'Dummy Category C', CountDiscussions: 99 },
+        { Name: 'Dummy Category D', CountDiscussions: 99 },
+        { Name: 'Dummy Category E', CountDiscussions: 99 },
+        { Name: 'Dummy Category F', CountDiscussions: 99 },
+        { Name: 'Dummy Category G', CountDiscussions: 99 },
+        { Name: 'Dummy Category H', CountDiscussions: 99 },
+        { Name: 'Dummy Category I', CountDiscussions: 99 },
+        { Name: 'Dummy Category J', CountDiscussions: 99 },
+        { Name: 'Dummy Category K', CountDiscussions: 99 },
+        { Name: 'Dummy Category L', CountDiscussions: 99 },
+        { Name: 'Dummy Category M', CountDiscussions: 99 },
+        { Name: 'Dummy Category N', CountDiscussions: 99 },
+        { Name: 'Dummy Category O', CountDiscussions: 99 },
       ]),
       loading: true, // TODO: propagate to parent scene
-    })
-    Client.categoryList(this._onResponse);
+    });
+    Client.categoryList(this._onResponse.bind(this));
   }
 
   _onResponse(data) {
-    console.log('LOADED');
-    // TODO: data view is not updating
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(data),
       loading: false
