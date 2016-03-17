@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.reactnativeplaypen">
+    package="com.thefretboard">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

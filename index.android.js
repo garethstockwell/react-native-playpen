@@ -11,5 +11,5 @@ import React, {
 
 const App = require('./src/App');
 
-AppRegistry.registerComponent('ReactNativePlaypen', () => App);
+AppRegistry.registerComponent('TheFretboard', () => App);
 

@@ -11,7 +11,7 @@ import React, {
   View
 } from 'react-native';
 
-class ReactNativePlaypen extends Component {
+class TheFretboard extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('ReactNativePlaypen', () => ReactNativePlaypen);
+AppRegistry.registerComponent('TheFretboard', () => TheFretboard);

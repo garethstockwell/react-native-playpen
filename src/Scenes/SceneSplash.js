@@ -25,7 +25,7 @@ class SceneSplash extends Component {
     return (
       <View style={Styles.splash}>
         <Text style={Styles.splashText}>
-          ReactNativePlaypen ({this.state.text})
+          The Fretboard ({this.state.text})
         </Text>
       </View>
     );
