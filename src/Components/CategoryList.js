@@ -28,25 +28,6 @@ class CategoryList extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({
-            dataSource: this.state.dataSource.cloneWithRows([
-                { Name: 'Dummy Category A', CountDiscussions: 123 },
-                { Name: 'Dummy Category B', CountDiscussions: 0 },
-                { Name: 'Dummy Category C', CountDiscussions: 99 },
-                { Name: 'Dummy Category D', CountDiscussions: 99 },
-                { Name: 'Dummy Category E', CountDiscussions: 99 },
-                { Name: 'Dummy Category F', CountDiscussions: 99 },
-                { Name: 'Dummy Category G', CountDiscussions: 99 },
-                { Name: 'Dummy Category H', CountDiscussions: 99 },
-                { Name: 'Dummy Category I', CountDiscussions: 99 },
-                { Name: 'Dummy Category J', CountDiscussions: 99 },
-                { Name: 'Dummy Category K', CountDiscussions: 99 },
-                { Name: 'Dummy Category L', CountDiscussions: 99 },
-                { Name: 'Dummy Category M', CountDiscussions: 99 },
-                { Name: 'Dummy Category N', CountDiscussions: 99 },
-                { Name: 'Dummy Category O', CountDiscussions: 99 },
-            ])
-        });
         this._load();
     }
 
