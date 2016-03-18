@@ -6,7 +6,7 @@
 'use strict';
 
 import React, {
-  AppRegistry,
+    AppRegistry,
 } from 'react-native';
 
 const App = require('./src/App');
