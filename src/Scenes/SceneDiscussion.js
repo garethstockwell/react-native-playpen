@@ -9,9 +9,8 @@ import React, {
     View,
 } from 'react-native';
 
-const Styles = require('../Styles')
-
 const Scene = require('./Scene');
+const Styles = require('../Styles');
 
 class SceneDiscussion extends Scene {
     renderBody() {

@@ -11,9 +11,8 @@ import React, {
     ProgressBarAndroid,
 } from 'react-native';
 
-const Styles = require('../Styles')
-
-const Spinner = require('../Components/Spinner')
+const Spinner = require('../Components/Spinner');
+const Styles = require('../Styles');
 
 class Scene extends Component {
     constructor(props) {

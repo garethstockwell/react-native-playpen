@@ -11,14 +11,16 @@ import React, {
     View,
 } from 'react-native';
 
-const Styles = require('../Styles')
+const PageBar = require('./PageBar');
+const Styles = require('../Styles');
 
 class MyListView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             dataSource: new ListView.DataSource({
-                rowHasChanged: (r1, r2) => r1 !== r2
+                rowHasChanged: (r1, r2) => r1 !== r2,
+                sectionHeaderHasChanged: (s1, s2) => s1 !== s2
             })
         };
     }
@@ -36,12 +38,19 @@ class MyListView extends React.Component {
         });
     }
 
+    renderSectionHeader() {
+        return (
+            <PageBar />
+        );
+    }
+
     render() {
         return (
             <View style={Styles.container}>
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this.renderItem.bind(this)}
+                    renderSectionHeader={this.renderSectionHeader.bind(this)}
                     style={Styles.listview}
                     onScroll={this.props.onScroll}
                 />

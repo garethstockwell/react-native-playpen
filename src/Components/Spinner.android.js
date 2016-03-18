@@ -9,7 +9,7 @@ import React, {
     ProgressBarAndroid,
 } from 'react-native';
 
-const Styles = require('../Styles')
+const Styles = require('../Styles');
 
 class Spinner extends Component {
     render() {

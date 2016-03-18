@@ -11,7 +11,7 @@ import React, {
     View,
 } from 'react-native';
 
-const Styles = require('../Styles')
+const Styles = require('../Styles');
 
 class SceneSplash extends Component {
     constructor(props) {

@@ -21,10 +21,13 @@ var COLOR = {
         GOLD:                      '#F1C40F',
 
         PURPLE:                    '#9B59B6',
+
+        RED:                       '#FF0000',
 };
 
 var DIM = {
         HEIGHT_NAVBAR:             50,
+        HEIGHT_PAGEBAR:            50,
 
         HEIGHT_LIST_SEP:           1,
         WIDTH_LIST_MARGIN:         0,
@@ -89,6 +92,22 @@ const styles = StyleSheet.create({
 
     liText: {
         color: COLOR.BLUE_DARK,
+        fontSize: FONT_SIZE.LIST_TITLE,
+    },
+
+    liPageBar: {
+        backgroundColor: COLOR.RED,
+        borderWidth: 0,
+        marginLeft: DIM.WIDTH_LIST_MARGIN,
+        marginRight: DIM.WIDTH_LIST_MARGIN,
+        marginTop: 0,
+        marginBottom: DIM.HEIGHT_LIST_SEP,
+        padding: DIM.PADDING_LIST,
+        height: DIM.HEIGHT_PAGE_BAR,
+    },
+
+    liPageBarText: {
+        color: COLOR.WHITE,
         fontSize: FONT_SIZE.LIST_TITLE,
     },
 
