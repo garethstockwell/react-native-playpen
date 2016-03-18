@@ -11,7 +11,10 @@ const DiscussionListItem = require('./DiscussionListItem');
 
 class DiscussionList extends MyListView {
     load() {
-        Client.discussionList(this.onResponse.bind(this));
+        Client.categoryDiscussionList(
+            this.props.categoryID,
+            this.onResponse.bind(this)
+        );
     }
 
     renderItem(item) {

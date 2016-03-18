@@ -17,15 +17,17 @@ class SceneCategory extends Scene {
     _onPressDiscussion(discussionID, discussionName) {
         this.props.navigator.push({
             id: 'SceneDiscussion',
-            discussionID: discussionID,
-            discussionName: discussionName,
             title: discussionName,
+            passProps: {
+                discussionID: discussionID,
+            },
         })
     }
 
     renderBody() {
         return (
             <DiscussionList
+                categoryID={this.props.categoryID}
                 onPress={(discussionID, discussionName) =>
                         this._onPressDiscussion(discussionID, discussionName)}
                 onScroll={() => this._onScroll()}

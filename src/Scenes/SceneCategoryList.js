@@ -17,9 +17,10 @@ class SceneCategoryList extends Scene {
     _onPressCategory(categoryID, categoryName) {
         this.props.navigator.push({
             id: 'SceneCategory',
-            categoryID: categoryID,
-            categoryName: categoryName,
             title: categoryName,
+            passProps: {
+                categoryID: categoryID,
+            },
         })
     }
 

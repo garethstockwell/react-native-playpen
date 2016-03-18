@@ -35,9 +35,10 @@ class ClientVanilla {
         return this[singleton];
     }
 
-    _fetch(func, process, callback) {
-        let url = URL_API + func
-        let resp = fetch(url)
+    _fetch(url, process, callback) {
+        var request = new Request();
+        request.url = URL_API + url;
+        let resp = fetch(request)
             .then(resp => resp.json())
             .then(resp => process(resp))
             .then(resp => callback(resp))
@@ -53,6 +54,12 @@ class ClientVanilla {
 
     discussionList(callback) {
         return this._fetch('/discussions/list.json',
+                (data => data['Discussions']), callback);
+    }
+
+    categoryDiscussionList(categoryID, callback) {
+        var url = '/discussions/category.json?CategoryIdentifier=' + categoryID;
+        return this._fetch(url,
                 (data => data['Discussions']), callback);
     }
 };
