@@ -45,13 +45,18 @@ class CategoryList extends React.Component {
         { Name: 'Dummy Category M', CountDiscussions: 99 },
         { Name: 'Dummy Category N', CountDiscussions: 99 },
         { Name: 'Dummy Category O', CountDiscussions: 99 },
-      ]),
-      loading: true, // TODO: propagate to parent scene
+      ])
     });
-    Client.categoryList(this._onResponse.bind(this));
+    this._load();
+  }
+
+  _load() {
+      this.props.onLoadingChanged(true);
+      Client.categoryList(this._onResponse.bind(this));
   }
 
   _onResponse(data) {
+    this.props.onLoadingChanged(false);
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(data),
       loading: false

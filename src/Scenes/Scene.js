@@ -24,6 +24,10 @@ class Scene extends Component {
     }
   }
 
+  _onLoadingChanged(value) {
+    this.setState({ loading: value });
+  }
+
   render() {
     return (
       <Navigator
@@ -33,14 +37,7 @@ class Scene extends Component {
     );
   }
 
-  renderScene(route, navigator) {
-    let navBar = this.props.navigationBar;
-    if (navBar) {
-      // TODO: hide navigation bar when scroll view is pulled down
-    }
-
-    var body = null;
-
+  _renderSpinner() {
     if (this.state.loading) {
       return (
         <View style={Styles.spinnerView}>
@@ -48,11 +45,18 @@ class Scene extends Component {
         </View>
       );
     }
+  }
 
-    body = this.renderBody()
+  renderScene(route, navigator) {
+    let navBar = this.props.navigationBar;
+    if (navBar) {
+      // TODO: hide navigation bar when scroll view is pulled down
+    }
+
     return (
       <View style={Styles.body}>
-        {body}
+        {this.renderBody()}
+        {this._renderSpinner()}
       </View>
     );
   }

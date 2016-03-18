@@ -30,6 +30,7 @@ class SceneCategoryList extends Scene {
       <CategoryList
         onPress={(title) => this._onPressCategory(title)}
         onScroll={() => this._onScroll()}
+        onLoadingChanged={(value) => this._onLoadingChanged(value)}
       />
     );
   }

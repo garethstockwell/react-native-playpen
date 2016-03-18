@@ -93,8 +93,12 @@ const styles = StyleSheet.create({
   },
 
   spinnerView: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     alignItems: 'center',
-    flex: 1,
     backgroundColor: COLOR.BLUE_DARK,
     justifyContent: 'center',
   },
