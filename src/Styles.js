@@ -9,35 +9,35 @@ import React, {
 } from 'react-native';
 
 var COLOR = {
-        BLACK:            '#000000',
-        GRAY_01:        '#373B3F',
-        GRAY_02:        '#999DA2',
-        WHITE:            '#FFFFFF',
+        BLACK:                     '#000000',
+        GRAY_01:                   '#373B3F',
+        GRAY_02:                   '#999DA2',
+        WHITE:                     '#FFFFFF',
 
-        BLUE_DARK:    '#2C3E50',
-        BLUE_MID:     '#2980B9',
-        BLUE_LIGHT: '#3498DB',
+        BLUE_DARK:                 '#2C3E50',
+        BLUE_MID:                  '#2980B9',
+        BLUE_LIGHT:                '#3498DB',
 
-        GOLD:             '#F1C40F',
+        GOLD:                      '#F1C40F',
 
-        PURPLE:         '#9B59B6',
+        PURPLE:                    '#9B59B6',
 };
 
 var DIM = {
-        HEIGHT_NAVBAR:                50,
+        HEIGHT_NAVBAR:             50,
 
-        HEIGHT_LIST_SEP:             1,
+        HEIGHT_LIST_SEP:           1,
         WIDTH_LIST_MARGIN:         0,
-        PADDING_LIST:                    5,
+        PADDING_LIST:              5,
 };
 
 var FONT_FAMILY = 'Lato';
 
 var FONT_SIZE = {
-        SPLASH:                             32,
-        NAVBAR:                             16,
+        SPLASH:                    32,
+        NAVBAR:                    16,
 
-        LIST_TITLE:                     16,
+        LIST_TITLE:                16,
 };
 
 const styles = StyleSheet.create({

@@ -30,27 +30,16 @@ var fetch = function (api, process) {
 }
 
 var categoryList = function () {
-    var process = function (data) {
-        var input = data['Categories'];
-        var output = [];
+    fetch('categories/list.json', (data => data['Categories']));
+}
 
-        for (var key in input) {
-            var inval = input[key];
-            var outval = {
-                Name: inval['Name'],
-                CountDiscussions: inval['CountAllDiscussions'],
-            };
-            output.push(outval);
-        }
-
-        return output;
-    }
-
-    fetch('categories/list.json', process);
+var discussionList = function () {
+    fetch('discussions/list.json', (data => data['Discussions']));
 }
 
 //------------------------------------------------------------------------------
 // Main
 //------------------------------------------------------------------------------
 
-categoryList();
+//categoryList();
+discussionList();

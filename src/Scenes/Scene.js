@@ -28,6 +28,10 @@ class Scene extends Component {
         this.setState({ loading: value });
     }
 
+    _onScroll() {
+        this.setState({ hideNavBar: true });
+    }
+
     render() {
         return (
             <Navigator

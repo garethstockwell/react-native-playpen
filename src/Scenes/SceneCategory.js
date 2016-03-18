@@ -14,17 +14,22 @@ const DiscussionList = require('../Components/DiscussionList');
 const Scene = require('./Scene');
 
 class SceneCategory extends Scene {
-    _onPressDiscussion(discussionTitle) {
+    _onPressDiscussion(discussionID, discussionName) {
         this.props.navigator.push({
             id: 'SceneDiscussion',
-            title: 'Discussion',
+            discussionID: discussionID,
+            discussionName: discussionName,
+            title: discussionName,
         })
     }
 
     renderBody() {
         return (
             <DiscussionList
-                onPress={(title) => this._onPressDiscussion(title)}
+                onPress={(discussionID, discussionName) =>
+                        this._onPressDiscussion(discussionID, discussionName)}
+                onScroll={() => this._onScroll()}
+                onLoadingChanged={(value) => this._onLoadingChanged(value)}
             />
         );
     }

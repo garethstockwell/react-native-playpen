@@ -14,21 +14,20 @@ const CategoryList = require('../Components/CategoryList');
 const Scene = require('./Scene');
 
 class SceneCategoryList extends Scene {
-    _onPressCategory(categoryTitle) {
+    _onPressCategory(categoryID, categoryName) {
         this.props.navigator.push({
             id: 'SceneCategory',
-            title: categoryTitle,
+            categoryID: categoryID,
+            categoryName: categoryName,
+            title: categoryName,
         })
-    }
-
-    _onScroll() {
-        this.setState({ hideNavBar: true });
     }
 
     renderBody() {
         return (
             <CategoryList
-                onPress={(title) => this._onPressCategory(title)}
+                onPress={(categoryID, categoryName) =>
+                            this._onPressCategory(categoryID, categoryName)}
                 onScroll={() => this._onScroll()}
                 onLoadingChanged={(value) => this._onLoadingChanged(value)}
             />

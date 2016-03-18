@@ -47,23 +47,13 @@ class ClientVanilla {
     }
 
     categoryList(callback) {
-        var process = function(data) {
-            var input = data['Categories'];
-            var output = [];
+        return this._fetch('/categories/list.json',
+                (data => data['Categories']), callback);
+    }
 
-            for (var key in input) {
-                var inval = input[key];
-                var outval = {
-                    Name: inval['Name'],
-                    CountDiscussions: inval['CountAllDiscussions'],
-                };
-                output.push(outval);
-            }
-
-            return output;
-        }
-
-        return this._fetch('/categories/list.json', process, callback);
+    discussionList(callback) {
+        return this._fetch('/discussions/list.json',
+                (data => data['Discussions']), callback);
     }
 };
 

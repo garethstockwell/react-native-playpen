@@ -17,10 +17,13 @@ class DiscussionListItem extends React.Component {
     render() {
         return (
             <TouchableHighlight
-                onPress={() => this.props.onPress(this.props.item.title)}
+                onPress={() => this.props.onPress(
+                    this.props.item.DiscussionID,
+                    this.props.item.Name
+                )}
             >
                 <View style={Styles.li}>
-                    <Text style={Styles.liText}>{this.props.item.title}</Text>
+                    <Text style={Styles.liText}>{this.props.item.Name}</Text>
                 </View>
             </TouchableHighlight>
         );
