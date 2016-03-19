@@ -4,15 +4,29 @@
 
 'use strict';
 
-import React from 'react-native';
+import React, {
+    View,
+    Text,
+} from 'react-native';
+
 import Client from '../Client/Client';
 const CategoryListItem = require('./CategoryListItem');
 const ListViewNormal = require('./ListViewNormal');
 const ListViewSectioned = require('./ListViewSectioned');
+const Styles = require('../Styles');
 
-class CategoryList extends ListViewNormal {
+class CategoryList extends ListViewSectioned {
     doLoad() {
-        Client.categoryListNormal(this.onLoaded.bind(this));
+        Client.categoryListSectioned(
+            this.onLoaded.bind(this));
+    }
+
+    renderSectionHeader(sectionData, sectionID) {
+        return (
+            <View style={Styles.liSectionHeading}>
+                <Text style={Styles.liSectionHeadingText}>{sectionData.Name}</Text>
+            </View>
+        );
     }
 
     renderRow(item) {

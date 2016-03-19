@@ -95,6 +95,23 @@ const styles = StyleSheet.create({
         fontSize: FONT_SIZE.LIST_TITLE,
     },
 
+    liSectionHeading: {
+        backgroundColor: COLOR.BLUE_MID,
+        borderWidth: 0,
+        marginLeft: DIM.WIDTH_LIST_MARGIN,
+        marginRight: DIM.WIDTH_LIST_MARGIN,
+        marginTop: 0,
+        marginBottom: DIM.HEIGHT_LIST_SEP,
+        padding: DIM.PADDING_LIST,
+        height: DIM.HEIGHT_PAGE_BAR,
+    },
+
+    liSectionHeadingText: {
+        color: COLOR.WHITE,
+        fontSize: FONT_SIZE.LIST_TITLE,
+        fontWeight: 'bold',
+    },
+
     liPageBar: {
         backgroundColor: COLOR.RED,
         borderWidth: 0,

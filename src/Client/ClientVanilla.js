@@ -47,15 +47,33 @@ class ClientVanilla {
         return resp;
     }
 
+    /* Return list of all categories.
+     *
+     * Return type: array<item>, where item is a JSON object representing
+     * a group / category.
+     */
     categoryListNormal(callback) {
         return this._fetch('/categories/list.json',
                 (data => data['Categories']), callback);
     }
 
+    /* Return list of all categories.
+     *
+     * Return type: [dataBlob, sectionIDs, rowIDs]
+     *
+     * dataBlob is a map: keys are group / category IDs; values are JSON objects
+     * representing each group / category.
+     *
+     * sectionIDs is an array of group IDs.
+     *
+     * rowIDs is an array of arrays of category IDs.
+     */
     categoryListSectioned(callback) {
         var process = function(input) {
             var inData = input['Categories'];
-            var outData = {};
+
+            // Map from CategoryID to index into sectionIDs / rowIDs arrays.
+            var map = {};
 
             var sectionIDs = [];
             var rowIDs = [];
@@ -65,10 +83,9 @@ class ClientVanilla {
                 var parentID = item['ParentCategoryID'];
 
                 if (parentID === -1) {
-                    console.log('Group ' + id + ' (' + item['Name'] + ')');
+                    map[id] = sectionIDs.length;
                     sectionIDs.push(id);
-                    rowIDs[id] = [];
-                    outData[id] = item;
+                    rowIDs.push([]);
                 }
             }
 
@@ -77,24 +94,35 @@ class ClientVanilla {
                 var parentID = item['ParentCategoryID'];
 
                 if (parentID !== -1) {
-                    console.log('Category ' + id + ' (' + item['Name'] + ') group ' + parentID);
-                    rowIDs[parentID].push(id);
-                    outData[parentID + ':' + id] = item;
+                    var idx = map[parentID];
+                    rowIDs[idx].push(id);
                 }
             }
 
-            return [outData, sectionIDs, rowIDs];
+            return {
+                dataBlob: inData,
+                sectionIDs: sectionIDs,
+                rowIDs: rowIDs,
+            };
         }
 
         return this._fetch('/categories/list.json',
                 (data => process(data)), callback);
     }
 
+    /* Returns a list of all discussions.
+     *
+     * TODO: pagination.
+     */
     discussionList(callback) {
         return this._fetch('/discussions/list.json',
                 (data => data['Discussions']), callback);
     }
 
+    /* Returns a list of all discussions in a specified category.
+     *
+     * TODO: pagination.
+     */
     categoryDiscussionList(categoryID, callback) {
         var url = '/discussions/category.json?CategoryIdentifier=' + categoryID;
         return this._fetch(url,

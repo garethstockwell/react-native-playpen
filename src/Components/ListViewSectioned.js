@@ -15,6 +15,17 @@ const Styles = require('../Styles');
 class ListViewSectioned extends ListViewBase {
     constructor(props) {
         super(props);
+
+        var getSectionData = function(dataBlob, sectionID) {
+            //console.log('getSectionData ' + sectionId);
+            return dataBlob[sectionID];
+        };
+
+        var getRowData = function(dataBlob, sectionID, rowID) {
+            //console.log('getRowData ' + rowID);
+            return dataBlob[rowID];
+        };
+
         this.state = {
             dataSource: new ListView.DataSource({
                 getSectionData: getSectionData,
@@ -26,34 +37,14 @@ class ListViewSectioned extends ListViewBase {
     }
 
     handleData(data) {
-        var blob = data[0];
-        var sectionIDs = data[1];
-        var rowIDs = data[2];
-
-        console.log("sectionIDs " + sectionIDs);
-        console.log("rowIDs " + rowIDs);
+        var dataBlob = data.dataBlob;
+        var sectionIDs = data.sectionIDs;
+        var rowIDs = data.rowIDs;
 
         this.setState({
             dataSource: this.state.dataSource.cloneWithRowsAndSections(
-                data, sectionIDs, rowIDs),
-            loading: false
+                dataBlob, sectionIDs, rowIDs)
         });
-    }
-
-    getSectionData(dataBlob, sectionID) {
-        return dataBlob[sectionID];
-    }
-
-    getRowData(dataBlob, sectionID, rowID) {
-        return dataBlob[sectionID + ':' + rowID];
-    }
-
-    renderSectionHeader(sectionData, sectionID) {
-        return (
-            <View style={Styles.li}>
-                <Text style={Styles.liText}>***{sectionData['Name']}</Text>
-            </View>
-        );
     }
 
     render() {
@@ -61,7 +52,7 @@ class ListViewSectioned extends ListViewBase {
             <View style={Styles.container}>
                 <ListView
                     dataSource={this.state.dataSource}
-                    renderRow={this.renderItem.bind(this)}
+                    renderRow={this.renderRow.bind(this)}
                     renderSectionHeader={this.renderSectionHeader.bind(this)}
                     style={Styles.listview}
                     onScroll={this.props.onScroll}
