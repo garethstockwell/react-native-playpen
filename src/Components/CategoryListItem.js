@@ -17,18 +17,18 @@ class CategoryListItem extends React.Component {
     render() {
         var CountAllDiscussions = '';
         if (this.props.item.CountAllDiscussions) {
-            CountAllDiscussions = ' (' + this.props.item.CountAllDiscussions + ')';
+            CountAllDiscussions = ' ('
+                + this.props.item.CountAllDiscussions + ')';
         }
 
         return (
             <TouchableHighlight
-                onPress={() => this.props.onPress(
-                    this.props.item.CategoryID,
-                    this.props.item.Name
-                )}
+                onPress={() => this.props.onPress(this.props.item)}
             >
                 <View style={Styles.li}>
-                    <Text style={Styles.liText}>{this.props.item.Name}{CountAllDiscussions}</Text>
+                    <Text style={Styles.liText}>
+                        {this.props.item.Name}{CountAllDiscussions}
+                    </Text>
                 </View>
             </TouchableHighlight>
         );

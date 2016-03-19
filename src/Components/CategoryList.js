@@ -20,7 +20,7 @@ class CategoryList extends ListViewSectioned {
         var data = this.props.categoryListData;
         console.log('CategoryList.componentDidMount data ' + data);
         if (data) {
-            this.handleData(data);
+            this.onDataChanged(data);
         } else {
             this.setLoading(true);
             this.load();
@@ -35,7 +35,7 @@ class CategoryList extends ListViewSectioned {
 
     onLoaded(categoryListData) {
         console.log('CategoryList.onLoaded');
-        this.handleData(categoryListData);
+        this.onDataChanged(categoryListData);
         this.setLoading(false);
     }
 

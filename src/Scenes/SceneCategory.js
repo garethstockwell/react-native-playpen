@@ -28,7 +28,7 @@ class SceneCategory extends Scene {
     renderBody() {
         return (
             <DiscussionList
-                categoryID={this.props.categoryID}
+                categoryData={this.props.categoryData}
                 onPress={(discussionID, discussionName) =>
                         this._onPressDiscussion(discussionID, discussionName)}
                 onScroll={() => this._onScroll()}

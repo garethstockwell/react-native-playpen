@@ -7,30 +7,37 @@
 import React from 'react-native';
 import Client from '../Client/Client';
 const DiscussionListItem = require('./DiscussionListItem');
-const ListViewSimple = require('./ListViewSimple');
+const ListViewPaged = require('./ListViewPaged');
 
-class DiscussionList extends ListViewSimple {
+class DiscussionList extends ListViewPaged {
     componentDidMount() {
-        console.log('DiscussionList.componentDidMount');
+        var currentPage = this.props.currentPage || 1;
+        console.log('DiscussionList.componentDidMount currentPage '
+            + currentPage);
         this.setLoading(true);
-        this.load();
+        this.setState({
+            currentPage: currentPage,
+            categoryData: this.props.categoryData,
+            itemCount: this.props.categoryData['CountAllDiscussions'],
+        });
+        this.loadDiscussionList();
     }
 
-    load() {
-        console.log('DiscussionList.load');
+    loadDiscussionList() {
+        console.log('DiscussionList.loadDiscussionList');
         Client.categoryDiscussionList(
-            this.props.categoryID,
-            this.onLoaded.bind(this)
+            this.props.categoryData['CategoryID'],
+            this.onDiscussionListLoaded.bind(this)
         );
     }
 
-    onLoaded(categoryListData) {
-        console.log('DiscussionList.onLoaded');
-        this.handleData(categoryListData);
+    onDiscussionListLoaded(discussionListData) {
+        console.log('DiscussionList.onDiscussionListLoaded');
+        this.onDataChanged(discussionListData);
         this.setLoading(false);
     }
 
-    renderRow(item) {
+    renderItemRow(item) {
         return (
             <DiscussionListItem
                 item={item}

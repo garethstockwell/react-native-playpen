@@ -15,12 +15,12 @@ const Scene = require('./Scene');
 const Styles = require('../Styles');
 
 class SceneCategoryList extends Scene {
-    _onPressCategory(categoryID, categoryName) {
+    _onPressCategory(categoryData) {
         this.props.navigator.push({
             id: 'SceneCategory',
-            title: categoryName,
+            title: categoryData['Name'],
             passProps: {
-                categoryID: categoryID,
+                categoryData: categoryData,
             },
         })
     }
@@ -28,8 +28,7 @@ class SceneCategoryList extends Scene {
     renderBody() {
         return (
             <CategoryList
-                onPress={(categoryID, categoryName) =>
-                            this._onPressCategory(categoryID, categoryName)}
+                onPress={(categoryData) => this._onPressCategory(categoryData)}
                 onScroll={() => this._onScroll()}
                 onLoadingChanged={(value) => this._onLoadingChanged(value)}
                 categoryListData={this.props.categoryListData}

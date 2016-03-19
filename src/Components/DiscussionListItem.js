@@ -23,7 +23,9 @@ class DiscussionListItem extends React.Component {
                 )}
             >
                 <View style={Styles.li}>
-                    <Text style={Styles.liText}>{this.props.item.Name}</Text>
+                    <Text style={Styles.liText}>
+                        {this.props.item.Name}
+                    </Text>
                 </View>
             </TouchableHighlight>
         );

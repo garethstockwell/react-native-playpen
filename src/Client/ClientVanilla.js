@@ -47,6 +47,14 @@ class ClientVanilla {
         return resp;
     }
 
+    _objectValues(input) {
+        var output = new Array;
+        for (var key in input) {
+            output.push(input[key]);
+        }
+        return output;
+    }
+
     /* Return list of all categories.
      *
      * Return type: array<item>, where item is a JSON object representing
@@ -119,7 +127,7 @@ class ClientVanilla {
     discussionList(callback) {
         console.log('Client.discussionList');
         return this._fetch('/discussions/list.json',
-                (data => data['Discussions']), callback);
+                (data => this._objectValues(data['Discussions'])), callback);
     }
 
     /* Returns a list of all discussions in a specified category.
@@ -127,10 +135,11 @@ class ClientVanilla {
      * TODO: pagination.
      */
     categoryDiscussionList(categoryID, callback) {
-        console.log('Client.categoryDiscussionList ' + categoryID)
+        console.log('Client.categoryDiscussionList'
+            + ' categoryID '+ categoryID);
         var url = '/discussions/category.json?CategoryIdentifier=' + categoryID;
         return this._fetch(url,
-                (data => data['Discussions']), callback);
+                (data => this._objectValues(data['Discussions'])), callback);
     }
 };
 

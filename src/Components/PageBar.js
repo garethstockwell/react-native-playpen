@@ -18,7 +18,9 @@ class PageBar extends React.Component {
     render() {
         return (
             <View style={Styles.liPageBar}>
-                <Text style={Styles.liPageBarText}>PAGE BAR</Text>
+                <Text style={Styles.liPageBarText}>
+                    Page {this.props.currentPage} of {this.props.numPages}
+                </Text>
             </View>
         );
     }

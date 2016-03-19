@@ -36,12 +36,18 @@ class ListViewSectioned extends ListViewBase {
         };
     }
 
-    handleData(data) {
-        console.log(this.constructor.name + '.handleData');
-
+    onDataChanged(data) {
         var dataBlob = data.dataBlob;
         var sectionIDs = data.sectionIDs;
         var rowIDs = data.rowIDs;
+
+        var numRows = rowIDs.reduce(function(total, entry){
+            return total + entry.length;
+        }, 0);
+
+        console.log(this.constructor.name + '.onDataChanged'
+            + ' numSections ' + sectionIDs.length
+            + ' numRows ' + numRows);
 
         this.setState({
             dataSource: this.state.dataSource.cloneWithRowsAndSections(

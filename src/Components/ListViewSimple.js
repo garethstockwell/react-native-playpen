@@ -24,8 +24,8 @@ class ListViewSimple extends ListViewBase {
         };
     }
 
-    handleData(data) {
-        console.log(this.constructor.name + '.handleData');
+    onDataChanged(data) {
+        console.log(this.constructor.name + '.onDataChanged');
 
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(data)
