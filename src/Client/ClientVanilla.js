@@ -47,9 +47,47 @@ class ClientVanilla {
         return resp;
     }
 
-    categoryList(callback) {
+    categoryListNormal(callback) {
         return this._fetch('/categories/list.json',
                 (data => data['Categories']), callback);
+    }
+
+    categoryListSectioned(callback) {
+        var process = function(input) {
+            var inData = input['Categories'];
+            var outData = {};
+
+            var sectionIDs = [];
+            var rowIDs = [];
+
+            for (var id in inData) {
+                var item = inData[id];
+                var parentID = item['ParentCategoryID'];
+
+                if (parentID === -1) {
+                    console.log('Group ' + id + ' (' + item['Name'] + ')');
+                    sectionIDs.push(id);
+                    rowIDs[id] = [];
+                    outData[id] = item;
+                }
+            }
+
+            for (var id in inData) {
+                var item = inData[id];
+                var parentID = item['ParentCategoryID'];
+
+                if (parentID !== -1) {
+                    console.log('Category ' + id + ' (' + item['Name'] + ') group ' + parentID);
+                    rowIDs[parentID].push(id);
+                    outData[parentID + ':' + id] = item;
+                }
+            }
+
+            return [outData, sectionIDs, rowIDs];
+        }
+
+        return this._fetch('/categories/list.json',
+                (data => process(data)), callback);
     }
 
     discussionList(callback) {

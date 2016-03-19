@@ -6,18 +6,18 @@
 
 import React from 'react-native';
 import Client from '../Client/Client';
-const MyListView = require('./MyListView');
 const DiscussionListItem = require('./DiscussionListItem');
+const ListViewNormal = require('./ListViewNormal');
 
-class DiscussionList extends MyListView {
-    load() {
+class DiscussionList extends ListViewNormal {
+    doLoad() {
         Client.categoryDiscussionList(
             this.props.categoryID,
-            this.onResponse.bind(this)
+            this.onLoaded.bind(this)
         );
     }
 
-    renderItem(item) {
+    renderRow(item) {
         return (
             <DiscussionListItem
                 item={item}

@@ -6,15 +6,16 @@
 
 import React from 'react-native';
 import Client from '../Client/Client';
-const MyListView = require('./MyListView');
 const CategoryListItem = require('./CategoryListItem');
+const ListViewNormal = require('./ListViewNormal');
+const ListViewSectioned = require('./ListViewSectioned');
 
-class CategoryList extends MyListView {
-    load() {
-        Client.categoryList(this.onResponse.bind(this));
+class CategoryList extends ListViewNormal {
+    doLoad() {
+        Client.categoryListNormal(this.onLoaded.bind(this));
     }
 
-    renderItem(item) {
+    renderRow(item) {
         return (
             <CategoryListItem
                 item={item}
