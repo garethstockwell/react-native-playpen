@@ -53,10 +53,10 @@ class App extends Component {
             this.onLoaded.bind(this));
     }
 
-    onLoaded(data) {
+    onLoaded(categoryListData) {
         this.setState({
             loaded: true,
-            initialSceneData: data,
+            categoryListData: categoryListData,
         });
     }
 
@@ -74,7 +74,7 @@ class App extends Component {
                     id: 'SceneCategoryList',
                     title: 'Home',
                     passProps: {
-                        initialSceneData: this.state.initialSceneData,
+                        categoryListData: this.state.categoryListData,
                     },
                 }}
                 navigationBar={NavigationBar}

@@ -1,5 +1,7 @@
 /**
  * ListViewSectioned
+ *
+ * Renders a ListView whose items are grouped into sections.
  */
 
 'use strict';
@@ -17,12 +19,10 @@ class ListViewSectioned extends ListViewBase {
         super(props);
 
         var getSectionData = function(dataBlob, sectionID) {
-            //console.log('getSectionData ' + sectionId);
             return dataBlob[sectionID];
         };
 
         var getRowData = function(dataBlob, sectionID, rowID) {
-            //console.log('getRowData ' + rowID);
             return dataBlob[rowID];
         };
 
@@ -37,6 +37,8 @@ class ListViewSectioned extends ListViewBase {
     }
 
     handleData(data) {
+        console.log(this.constructor.name + '.handleData');
+
         var dataBlob = data.dataBlob;
         var sectionIDs = data.sectionIDs;
         var rowIDs = data.rowIDs;
@@ -48,6 +50,8 @@ class ListViewSectioned extends ListViewBase {
     }
 
     render() {
+        console.log(this.constructor.name + '.render');
+
         return (
             <View style={Styles.container}>
                 <ListView

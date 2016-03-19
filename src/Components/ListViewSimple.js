@@ -25,12 +25,16 @@ class ListViewSimple extends ListViewBase {
     }
 
     handleData(data) {
+        console.log(this.constructor.name + '.handleData');
+
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(data)
         });
     }
 
     render() {
+        console.log(this.constructor.name + '.render');
+
         return (
             <View style={Styles.container}>
                 <ListView

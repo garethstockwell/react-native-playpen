@@ -25,6 +25,7 @@ class Scene extends Component {
     }
 
     _onLoadingChanged(value) {
+        console.log(this.constructor.name + '._onLoadingChanged ' + value);
         this.setState({ loading: value });
     }
 
@@ -33,6 +34,8 @@ class Scene extends Component {
     }
 
     render() {
+        console.log(this.constructor.name + '.render');
+
         return (
             <Navigator
                 renderScene={this.renderScene.bind(this)}

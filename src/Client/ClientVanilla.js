@@ -53,6 +53,7 @@ class ClientVanilla {
      * a group / category.
      */
     categoryListNormal(callback) {
+        console.log('Client.categoryListNormal');
         return this._fetch('/categories/list.json',
                 (data => data['Categories']), callback);
     }
@@ -69,6 +70,7 @@ class ClientVanilla {
      * rowIDs is an array of arrays of category IDs.
      */
     categoryListSectioned(callback) {
+        console.log('Client.categoryListSectioned');
         var process = function(input) {
             var inData = input['Categories'];
 
@@ -115,6 +117,7 @@ class ClientVanilla {
      * TODO: pagination.
      */
     discussionList(callback) {
+        console.log('Client.discussionList');
         return this._fetch('/discussions/list.json',
                 (data => data['Discussions']), callback);
     }
@@ -124,6 +127,7 @@ class ClientVanilla {
      * TODO: pagination.
      */
     categoryDiscussionList(categoryID, callback) {
+        console.log('Client.categoryDiscussionList ' + categoryID)
         var url = '/discussions/category.json?CategoryIdentifier=' + categoryID;
         return this._fetch(url,
                 (data => data['Discussions']), callback);

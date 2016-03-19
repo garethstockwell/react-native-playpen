@@ -16,9 +16,27 @@ const ListViewSectioned = require('./ListViewSectioned');
 const Styles = require('../Styles');
 
 class CategoryList extends ListViewSectioned {
-    doLoad() {
+    componentDidMount() {
+        var data = this.props.categoryListData;
+        console.log('CategoryList.componentDidMount data ' + data);
+        if (data) {
+            this.handleData(data);
+        } else {
+            this.setLoading(true);
+            this.load();
+        }
+    }
+
+    load() {
+        console.log('CategoryList.load');
         Client.categoryListSectioned(
             this.onLoaded.bind(this));
+    }
+
+    onLoaded(categoryListData) {
+        console.log('CategoryList.onLoaded');
+        this.handleData(categoryListData);
+        this.setLoading(false);
     }
 
     renderSectionHeader(sectionData, sectionID) {

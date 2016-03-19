@@ -10,11 +10,24 @@ const DiscussionListItem = require('./DiscussionListItem');
 const ListViewSimple = require('./ListViewSimple');
 
 class DiscussionList extends ListViewSimple {
-    doLoad() {
+    componentDidMount() {
+        console.log('DiscussionList.componentDidMount');
+        this.setLoading(true);
+        this.load();
+    }
+
+    load() {
+        console.log('DiscussionList.load');
         Client.categoryDiscussionList(
             this.props.categoryID,
             this.onLoaded.bind(this)
         );
+    }
+
+    onLoaded(categoryListData) {
+        console.log('DiscussionList.onLoaded');
+        this.handleData(categoryListData);
+        this.setLoading(false);
     }
 
     renderRow(item) {
