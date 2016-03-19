@@ -1,5 +1,7 @@
 /**
  * ListViewNormal
+ *
+ * Renders a ListView without sections.
  */
 
 'use strict';

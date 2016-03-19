@@ -10,7 +10,6 @@ import React, {
     Component,
     Navigator,
     View,
-    ProgressBarAndroid,
 } from 'react-native';
 
 const Spinner = require('../Components/Spinner');
@@ -42,7 +41,7 @@ class Scene extends Component {
         );
     }
 
-    _renderSpinner() {
+    _renderLoading() {
         if (this.state.loading) {
             return (
                 <View style={Styles.spinnerView}>
@@ -56,12 +55,13 @@ class Scene extends Component {
         let navBar = this.props.navigationBar;
         if (navBar) {
             // TODO: hide navigation bar when scroll view is pulled down
+            // TODO: hide navigation bar when spinner is shown
         }
 
         return (
             <View style={Styles.body}>
                 {this.renderBody()}
-                {this._renderSpinner()}
+                {this._renderLoading()}
             </View>
         );
     }

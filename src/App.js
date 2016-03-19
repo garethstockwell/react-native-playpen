@@ -13,6 +13,8 @@ import React, {
     View,
 } from 'react-native';
 
+import Client from './Client/Client';
+
 const NavigationBar = require('./Components/NavigationBar');
 const SceneCategoryList = require('./Scenes/SceneCategoryList');
 const SceneCategory = require('./Scenes/SceneCategory');
@@ -45,6 +47,19 @@ class App extends Component {
         }
     }
 
+    componentWillMount() {
+        // Load data for first scene
+        Client.categoryListSectioned(
+            this.onLoaded.bind(this));
+    }
+
+    onLoaded(data) {
+        this.setState({
+            loaded: true,
+            initialSceneData: data,
+        });
+    }
+
     render() {
         if (this.state.loaded) {
         return (
@@ -57,7 +72,10 @@ class App extends Component {
                 }}
                 initialRoute={{
                     id: 'SceneCategoryList',
-                    title: 'Home'
+                    title: 'Home',
+                    passProps: {
+                        initialSceneData: this.state.initialSceneData,
+                    },
                 }}
                 navigationBar={NavigationBar}
                 renderScene={this.renderScene.bind(this)}
@@ -68,10 +86,6 @@ class App extends Component {
                 <SceneSplash />
             );
         }
-    }
-
-    componentWillMount() {
-        setTimeout(() => { this.setState({ loaded: true}); }, 1000);
     }
 
     renderScene(route, navigator) {
@@ -92,6 +106,7 @@ class App extends Component {
                     navigator={navigator}
                     navigationBar={NavigationBar}
                     route={route}
+                    {...route.passProps}
                 />
             );
         }

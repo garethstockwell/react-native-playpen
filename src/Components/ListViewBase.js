@@ -10,7 +10,11 @@ import React, {
 
 class ListViewBase extends React.Component {
     componentDidMount() {
-        this.load();
+        if (this.props.initialData) {
+            this.onLoaded(this.props.initialData);
+        } else {
+            this.load();
+        }
     }
 
     load() {
