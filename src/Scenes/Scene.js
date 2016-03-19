@@ -1,5 +1,7 @@
 /**
  * Scene
+ *
+ * Abstract base component for scenes within the application.
  */
 
 'use strict';

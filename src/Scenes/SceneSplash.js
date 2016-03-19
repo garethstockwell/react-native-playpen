@@ -1,5 +1,7 @@
 /**
  * SceneSplash
+ *
+ * Splash screen to display while application is loading.
  */
 
 'use strict';
@@ -11,22 +13,24 @@ import React, {
     View,
 } from 'react-native';
 
+const Spinner = require('../Components/Spinner');
 const Styles = require('../Styles');
 
 class SceneSplash extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            text: 'loading'
-        };
     }
 
     render() {
         return (
             <View style={Styles.splash}>
                 <Text style={Styles.splashText}>
-                    The Fretboard ({this.state.text})
+                    The Fretboard
                 </Text>
+
+                <View style={Styles.splashSpinner}>
+                    <Spinner />
+                </View>
             </View>
         );
     }

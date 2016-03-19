@@ -1,5 +1,7 @@
 /**
  * Spinner.Android
+ *
+ * Activity indicator for Android.
  */
 
 'use strict';

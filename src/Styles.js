@@ -9,6 +9,8 @@ import React, {
 } from 'react-native';
 
 var COLOR = {
+        TRANSPARENT:               'rgba(0,0,0,0)',
+
         BLACK:                     '#000000',
         GRAY_01:                   '#373B3F',
         GRAY_02:                   '#999DA2',
@@ -26,6 +28,9 @@ var COLOR = {
 };
 
 var DIM = {
+        MARGIN_SPLASH_SPINNER:     50,
+        HEIGHT_SPLASH_SPINNER:     150,
+
         HEIGHT_NAVBAR:             50,
         HEIGHT_PAGEBAR:            50,
 
@@ -45,8 +50,12 @@ var FONT_SIZE = {
 
 const styles = StyleSheet.create({
     splash: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
         alignItems: 'center',
-        flex: 1,
         backgroundColor: COLOR.BLUE_MID,
         justifyContent: 'center',
     },
@@ -55,6 +64,12 @@ const styles = StyleSheet.create({
         color: COLOR.WHITE,
         fontFamily: FONT_FAMILY,
         fontSize: FONT_SIZE.SPLASH,
+    },
+
+    splashSpinner: {
+        backgroundColor: COLOR.TRANSPARENT,
+        marginTop: DIM.MARGIN_SPLASH_SPINNER,
+        height: DIM.HEIGHT_SPLASH_SPINNER,
     },
 
     navbar: {

@@ -1,5 +1,7 @@
 /**
- * NavigationBar
+ * PageBar
+ *
+ * Used to navigate between pages of a list.
  */
 
 'use strict';

@@ -1,5 +1,7 @@
 /**
  * SceneCategory
+ *
+ * Scene for display of list of discussions within a category.
  */
 
 'use strict';

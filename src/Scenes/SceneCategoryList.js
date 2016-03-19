@@ -1,5 +1,7 @@
 /**
  * SceneCategoryList
+ *
+ * Scene for display of list of categories.
  */
 
 'use strict';

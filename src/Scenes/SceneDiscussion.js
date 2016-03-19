@@ -1,5 +1,8 @@
 /**
  * SceneDiscussion
+ *
+ * Scene for display of a discussion.  A discussion consists of an original
+ * posting, plus zero or more comments.
  */
 
 'use strict';
