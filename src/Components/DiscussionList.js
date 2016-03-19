@@ -7,9 +7,9 @@
 import React from 'react-native';
 import Client from '../Client/Client';
 const DiscussionListItem = require('./DiscussionListItem');
-const ListViewNormal = require('./ListViewNormal');
+const ListViewSimple = require('./ListViewSimple');
 
-class DiscussionList extends ListViewNormal {
+class DiscussionList extends ListViewSimple {
     doLoad() {
         Client.categoryDiscussionList(
             this.props.categoryID,

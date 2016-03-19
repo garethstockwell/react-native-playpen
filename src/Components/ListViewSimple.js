@@ -1,5 +1,5 @@
 /**
- * ListViewNormal
+ * ListViewSimple
  *
  * Renders a ListView without sections.
  */
@@ -14,7 +14,7 @@ import React, {
 const ListViewBase = require('./ListViewBase');
 const Styles = require('../Styles');
 
-class ListViewNormal extends ListViewBase {
+class ListViewSimple extends ListViewBase {
     constructor(props) {
         super(props);
         this.state = {
@@ -44,4 +44,4 @@ class ListViewNormal extends ListViewBase {
     }
 }
 
-module.exports = ListViewNormal;
+module.exports = ListViewSimple;

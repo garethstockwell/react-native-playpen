@@ -11,7 +11,7 @@ import React, {
 
 import Client from '../Client/Client';
 const CategoryListItem = require('./CategoryListItem');
-const ListViewNormal = require('./ListViewNormal');
+const ListViewSimple = require('./ListViewSimple');
 const ListViewSectioned = require('./ListViewSectioned');
 const Styles = require('../Styles');
 
