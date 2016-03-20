@@ -15,12 +15,12 @@ const Scene = require('./Scene');
 const Styles = require('../Styles')
 
 class SceneCategory extends Scene {
-    _onPressDiscussion(discussionID, discussionName) {
+    _onPressDiscussion(discussionData) {
         this.props.navigator.push({
             id: 'SceneDiscussion',
-            title: discussionName,
+            title: 'Discussion',
             passProps: {
-                discussionID: discussionID,
+                discussionData: discussionData,
             },
         })
     }
@@ -29,8 +29,8 @@ class SceneCategory extends Scene {
         return (
             <DiscussionList
                 categoryData={this.props.categoryData}
-                onPress={(discussionID, discussionName) =>
-                        this._onPressDiscussion(discussionID, discussionName)}
+                onPress={(discussionData) =>
+                        this._onPressDiscussion(discussionData)}
                 onScroll={() => this._onScroll()}
                 onLoadingChanged={(value) => this._onLoadingChanged(value)}
             />

@@ -21,7 +21,9 @@ var BreadcrumbRouteMapper = {
 
     titleContentForRoute(route, navigator) {
         return (
-            <Text>{route.title}</Text>
+            <Text style={Styles.navText}>
+                {route.title}
+            </Text>
         );
     },
 
@@ -35,7 +37,9 @@ var BreadcrumbRouteMapper = {
                 onPress={navigator.pop}
                 style={Styles.crumbSeparatorPlaceholder}
             >
-                <Text>&gt;</Text>
+                <Text style={Styles.navText}>
+                    &gt;
+                </Text>
             </TouchableOpacity>
         );
     }
@@ -51,7 +55,7 @@ var RouteMapper = {
             <TouchableOpacity
                 onPress={() => navigator.pop()}
             >
-                <Text>
+                <Text style={Styles.navText}>
                     Back
                 </Text>
             </TouchableOpacity>
@@ -64,7 +68,7 @@ var RouteMapper = {
 
     Title(route, navigator, index, navState) {
         return (
-            <Text>
+            <Text style={Styles.navText}>
                 {route.title}
             </Text>
         );

@@ -43,12 +43,18 @@ class ListViewPaged extends ListViewSimple {
         super.onDataChanged(data);
     }
 
+    goToPage(page) {
+        console.error('Abstract function called on ' + (this.constructor.name));
+        abstractFunctionNotImplemented();
+    }
+
     renderRow(item) {
         if (item.numPages) {
             return (
                 <PageBar
                     currentPage={this.state.currentPage}
                     numPages={item.numPages}
+                    goToPage={this.goToPage.bind(this)}
                 />
             );
         } else {

@@ -70,9 +70,16 @@ var discussionList = function () {
     fetch('discussions/list.json', (data => data['Discussions']));
 }
 
+var commentList = function (discussionID) {
+    fetch('comments/list.json',
+        (data => data));
+}
+
 //------------------------------------------------------------------------------
 // Main
 //------------------------------------------------------------------------------
 
-categoryList();
-//discussionList();
+//categoryList();
+discussionList();
+//commentList(62966);
+

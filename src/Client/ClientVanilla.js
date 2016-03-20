@@ -60,10 +60,10 @@ class ClientVanilla {
      * Return type: array<item>, where item is a JSON object representing
      * a group / category.
      */
-    categoryListNormal(callback) {
-        console.log('Client.categoryListNormal');
+    getCategoryListNormal(callback) {
+        console.log('Client.getCategoryListNormal');
         return this._fetch('/categories/list.json',
-                (data => data['Categories']), callback);
+                (data => data.Categories), callback);
     }
 
     /* Return list of all categories.
@@ -77,10 +77,10 @@ class ClientVanilla {
      *
      * rowIDs is an array of arrays of category IDs.
      */
-    categoryListSectioned(callback) {
-        console.log('Client.categoryListSectioned');
-        var process = function(input) {
-            var inData = input['Categories'];
+    getCategoryListSectioned(callback) {
+        console.log('Client.getCategoryListSectioned');
+        var process = function(response) {
+            var inData = response.Categories;
 
             // Map from CategoryID to index into sectionIDs / rowIDs arrays.
             var map = {};
@@ -90,7 +90,7 @@ class ClientVanilla {
 
             for (var id in inData) {
                 var item = inData[id];
-                var parentID = item['ParentCategoryID'];
+                var parentID = item.ParentCategoryID;
 
                 if (parentID === -1) {
                     map[id] = sectionIDs.length;
@@ -101,7 +101,7 @@ class ClientVanilla {
 
             for (var id in inData) {
                 var item = inData[id];
-                var parentID = item['ParentCategoryID'];
+                var parentID = item.ParentCategoryID;
 
                 if (parentID !== -1) {
                     var idx = map[parentID];
@@ -124,22 +124,28 @@ class ClientVanilla {
      *
      * TODO: pagination.
      */
-    discussionList(callback) {
-        console.log('Client.discussionList');
+    getDiscussionList(callback) {
+        console.log('Client.getDiscussionList');
         return this._fetch('/discussions/list.json',
-                (data => this._objectValues(data['Discussions'])), callback);
+                (data => this._objectValues(data.Discussions)), callback);
     }
 
     /* Returns a list of all discussions in a specified category.
      *
      * TODO: pagination.
      */
-    categoryDiscussionList(categoryID, callback) {
-        console.log('Client.categoryDiscussionList'
-            + ' categoryID '+ categoryID);
+    getCategoryDiscussionList(categoryID, page, callback) {
+        console.log('Client.getCategoryDiscussionList'
+            + ' categoryID '+ categoryID
+            + ' page ' + page);
         var url = '/discussions/category.json?CategoryIdentifier=' + categoryID;
         return this._fetch(url,
-                (data => this._objectValues(data['Discussions'])), callback);
+                (data => {
+                    return {
+                        page: page,
+                        discussions: data.Discussions
+                    };
+                }), callback);
     }
 };
 

@@ -49,7 +49,7 @@ class App extends Component {
 
     componentWillMount() {
         // Load data for first scene
-        Client.categoryListSectioned(
+        Client.getCategoryListSectioned(
             this.onLoaded.bind(this));
     }
 

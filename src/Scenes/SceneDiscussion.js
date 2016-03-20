@@ -8,17 +8,20 @@
 'use strict';
 
 import React, {
-    Text,
     View,
 } from 'react-native';
 
+const Discussion = require('../Components/Discussion');
 const Scene = require('./Scene');
 const Styles = require('../Styles');
 
 class SceneDiscussion extends Scene {
     renderBody() {
+        console.log('SceneDiscussion.renderBody ' + this.props.discussionData);
         return (
-            <Text>TODO</Text>
+            <Discussion
+                discussionData={this.props.discussionData}
+            />
         );
     }
 }

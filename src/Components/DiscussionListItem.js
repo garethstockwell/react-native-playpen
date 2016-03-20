@@ -17,10 +17,7 @@ class DiscussionListItem extends React.Component {
     render() {
         return (
             <TouchableHighlight
-                onPress={() => this.props.onPress(
-                    this.props.item.DiscussionID,
-                    this.props.item.Name
-                )}
+                onPress={() => this.props.onPress(this.props.item)}
             >
                 <View style={Styles.li}>
                     <Text style={Styles.liText}>

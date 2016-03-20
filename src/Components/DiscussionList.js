@@ -16,24 +16,32 @@ class DiscussionList extends ListViewPaged {
             + currentPage);
         this.setLoading(true);
         this.setState({
-            currentPage: currentPage,
             categoryData: this.props.categoryData,
             itemCount: this.props.categoryData['CountAllDiscussions'],
         });
-        this.loadDiscussionList();
+        this.loadDiscussionList(currentPage);
     }
 
-    loadDiscussionList() {
-        console.log('DiscussionList.loadDiscussionList');
-        Client.categoryDiscussionList(
+    /*
+    goToPage(page) {
+        console.log('DiscussionList.goToPage ' + page);
+        this.loadDiscussionList(page);
+    }
+    */
+
+    loadDiscussionList(page) {
+        console.log('DiscussionList.loadDiscussionList ' + page);
+        Client.getCategoryDiscussionList(
             this.props.categoryData['CategoryID'],
+            page,
             this.onDiscussionListLoaded.bind(this)
         );
     }
 
-    onDiscussionListLoaded(discussionListData) {
-        console.log('DiscussionList.onDiscussionListLoaded');
-        this.onDataChanged(discussionListData);
+    onDiscussionListLoaded(data) {
+        console.log('DiscussionList.onDiscussionListLoaded page ' + data.page);
+        this.setState({currentPage: data.page});
+        this.onDataChanged(data.discussions);
         this.setLoading(false);
     }
 

@@ -29,7 +29,7 @@ class CategoryList extends ListViewSectioned {
 
     load() {
         console.log('CategoryList.load');
-        Client.categoryListSectioned(
+        Client.getCategoryListSectioned(
             this.onLoaded.bind(this));
     }
 
