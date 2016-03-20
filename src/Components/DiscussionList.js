@@ -18,7 +18,6 @@ class DiscussionList extends ListViewPaged {
         var currentPage = this.props.currentPage || 1;
         console.log('DiscussionList.componentDidMount currentPage '
             + currentPage);
-        this.setLoading(true);
         this.setState({
             categoryData: this.props.categoryData,
             totalNumItems: this.props.categoryData['CountAllDiscussions'],
@@ -33,6 +32,8 @@ class DiscussionList extends ListViewPaged {
 
     loadDiscussionList(pageIndex) {
         console.log('DiscussionList.loadDiscussionList ' + pageIndex);
+
+        this.setLoading(true);
 
         var itemIndex = ((pageIndex - 1) * this.state.itemsPerPage) + 1;
 
