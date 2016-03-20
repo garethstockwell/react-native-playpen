@@ -20,7 +20,8 @@ const DUMMY_HTML = `
 <html>
     <body>
         <p>
-            This is a WebView.
+            This is a WebView.<br>
+            Here is a link to <a href="http://www.thefretboard.co.uk">thefretboard.co.uk</a>.<br>
             The HTML is statically compiled into the app, but the picture is an &lt;img&gt; which is fetched from DropBox.
         </p>
         <p>
