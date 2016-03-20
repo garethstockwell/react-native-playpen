@@ -15,24 +15,31 @@ const ListViewSimple = require('./ListViewSimple');
 const PageBar = require('./PageBar');
 const Styles = require('../Styles');
 
-// TODO: need an API to query this
-const ITEMS_PER_PAGE = 20;
-
 class ListViewPaged extends ListViewSimple {
+    constructor(props) {
+        super(props);
+        this.state.itemsPerPage = 0;
+    }
+
     _pageBarItem() {
-        var itemCount = this.state.itemCount;
+        var totalNumItems = this.state.totalNumItems || 0;
+        var itemsPerPage = this.state.itemsPerPage;
         var data = {
             numPages: Math.floor(
-                (itemCount + ITEMS_PER_PAGE - 1) / ITEMS_PER_PAGE),
+                (totalNumItems + itemsPerPage - 1) / itemsPerPage),
         };
         console.log(this.constructor.name + '._pageBarItem'
-            + ' itemCount ' + itemCount
-            + ' itemsPerPage ' + ITEMS_PER_PAGE
+            + ' totalNumItems ' + totalNumItems
+            + ' itemsPerPage ' + itemsPerPage
             + ' numPages ' + data.numPages);
         return data;
     }
 
-    onDataChanged(data) {
+    onDataChanged(pageIndex, data) {
+        console.log(this.constructor.name + '.onDataChanged'
+            + ' pageIndex ' + pageIndex
+            + ' numItems ' + data.length);
+
         var pageBarItem = this._pageBarItem();
 
         if (pageBarItem.numPages > 1) {
@@ -40,6 +47,7 @@ class ListViewPaged extends ListViewSimple {
             data.push(pageBarItem);
         }
 
+        this.setState({currentPage: pageIndex});
         super.onDataChanged(data);
     }
 

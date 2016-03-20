@@ -132,17 +132,20 @@ class ClientVanilla {
 
     /* Returns a list of all discussions in a specified category.
      *
-     * TODO: pagination.
      */
-    getCategoryDiscussionList(categoryID, page, callback) {
+    getCategoryDiscussionList(categoryID, pageIndex, itemIndex, callback) {
         console.log('Client.getCategoryDiscussionList'
             + ' categoryID '+ categoryID
-            + ' page ' + page);
-        var url = '/discussions/category.json?CategoryIdentifier=' + categoryID;
+            + ' pageIndex ' + pageIndex
+            + ' itemIndex ' + itemIndex);
+        var url = '/discussions/category.json?'
+            + 'CategoryIdentifier=' + categoryID
+            + '&'
+            + 'Page=' + itemIndex;
         return this._fetch(url,
                 (data => {
                     return {
-                        page: page,
+                        pageIndex: pageIndex,
                         discussions: data.Discussions
                     };
                 }), callback);

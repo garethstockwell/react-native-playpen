@@ -10,6 +10,10 @@ const DiscussionListItem = require('./DiscussionListItem');
 const ListViewPaged = require('./ListViewPaged');
 
 class DiscussionList extends ListViewPaged {
+    constructor(props) {
+        super(props);
+    }
+
     componentDidMount() {
         var currentPage = this.props.currentPage || 1;
         console.log('DiscussionList.componentDidMount currentPage '
@@ -17,31 +21,40 @@ class DiscussionList extends ListViewPaged {
         this.setLoading(true);
         this.setState({
             categoryData: this.props.categoryData,
-            itemCount: this.props.categoryData['CountAllDiscussions'],
+            totalNumItems: this.props.categoryData['CountAllDiscussions'],
         });
         this.loadDiscussionList(currentPage);
     }
 
-    /*
-    goToPage(page) {
-        console.log('DiscussionList.goToPage ' + page);
-        this.loadDiscussionList(page);
+    goToPage(pageIndex) {
+        console.log('DiscussionList.goToPage ' + pageIndex);
+        this.loadDiscussionList(pageIndex);
     }
-    */
 
-    loadDiscussionList(page) {
-        console.log('DiscussionList.loadDiscussionList ' + page);
+    loadDiscussionList(pageIndex) {
+        console.log('DiscussionList.loadDiscussionList ' + pageIndex);
+
+        var itemIndex = ((pageIndex - 1) * this.state.itemsPerPage) + 1;
+
         Client.getCategoryDiscussionList(
             this.props.categoryData['CategoryID'],
-            page,
+            pageIndex,
+            itemIndex,
             this.onDiscussionListLoaded.bind(this)
         );
     }
 
     onDiscussionListLoaded(data) {
-        console.log('DiscussionList.onDiscussionListLoaded page ' + data.page);
-        this.setState({currentPage: data.page});
-        this.onDataChanged(data.discussions);
+        console.log('DiscussionList.onDiscussionListLoaded');
+
+        if (data.pageIndex == 1) {
+            var itemsPerPage = data.discussions.length;
+            console.log('DiscussionList.onDiscussionListLoaded'
+                + ' itemsPerPage ' + itemsPerPage);
+            this.setState({itemsPerPage: itemsPerPage});
+        }
+
+        this.onDataChanged(data.pageIndex, data.discussions);
         this.setLoading(false);
     }
 
