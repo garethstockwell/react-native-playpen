@@ -4,6 +4,7 @@ This file captures miscellaneous TODO items which are not recorded in the REQUIR
 
 ## Definitely
 
+* Fix tabs in f399324 2bbe4de
 * "Dev build" Flag
    * Show a message on the login screen
    * Use dev server URL
